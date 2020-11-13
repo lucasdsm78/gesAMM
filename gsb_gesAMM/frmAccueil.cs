@@ -20,8 +20,6 @@ namespace gsb_gesAMM
         private void frmAccueil_Load(object sender, EventArgs e)
         {
             Globale.connect();
-            dkdkdkd$
-            ddddd
 
 
             
