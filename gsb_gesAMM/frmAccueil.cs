@@ -19,10 +19,22 @@ namespace gsb_gesAMM
 
         private void frmAccueil_Load(object sender, EventArgs e)
         {
-            Globale.connect();
+            Globale.connect();   
+        }
 
-
-            
+        private void btConnexion_Click(object sender, EventArgs e)
+        {
+            if(tbLogin.Text == "" && tbMdp.Text == "")
+            {
+                MessageBox.Show("veuillez remplir tous les champs", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                if (bd.verifConnexion(tbLogin.Text, tbMdp.Text))
+                {
+                    MessageBox.Show("Connexion réussie");
+                }                
+            }
         }
     }
 }

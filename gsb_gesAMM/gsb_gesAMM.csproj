@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bd.cs" />
     <Compile Include="frmAccueil.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -56,6 +57,7 @@
     <Compile Include="Globale.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="utilisateur.cs" />
     <EmbeddedResource Include="frmAccueil.resx">
       <DependentUpon>frmAccueil.cs</DependentUpon>
     </EmbeddedResource>
