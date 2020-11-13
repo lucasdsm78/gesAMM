@@ -13,9 +13,9 @@ namespace gsb_gesAMM
 
         public static void connect()
         {
-            /* Globale.cnx = new System.Data.SqlClient.SqlConnection();
+             Globale.cnx = new System.Data.SqlClient.SqlConnection();
              Globale.cnx.ConnectionString = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=GSB_gesAMM;Integrated Security=True;MultipleActiveResultSets=True";
-             Globale.cnx.Open();*/
+             Globale.cnx.Open();
         }
     }
 }
