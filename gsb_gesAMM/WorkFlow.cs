@@ -18,12 +18,12 @@ namespace gsb_gesAMM
             this.wkf_date_decision = leWkfDatDecision;
             this.wkf_etp_num = leWkfEtpNum;
             this.wkf_dcs_id = leWkdDcsId;
-            this.wkf_med_Id = leWkfMedDl;
+            this.wkf_med_id = leWkfMedDl;
         }
 
         public DateTime getWkfDateDecision() { return this.wkf_date_decision; }
         public int getWkfEtpNum() { return this.wkf_etp_num; }
         public int getWkfDcsId() { return this.wkf_dcs_id; }
-        public string getWkfMedId() { return this.wkf_med_Id; }
+        public string getWkfMedId() { return this.wkf_med_id; }
     }
 }
