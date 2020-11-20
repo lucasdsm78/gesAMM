@@ -48,11 +48,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="bd.cs" />
+    <Compile Include="Decision.cs" />
+    <Compile Include="Etape.cs" />
+    <Compile Include="Famille.cs" />
     <Compile Include="frmAccueil.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmAccueil.Designer.cs">
       <DependentUpon>frmAccueil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMedAuto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMedAuto.Designer.cs">
+      <DependentUpon>frmMedAuto.cs</DependentUpon>
     </Compile>
     <Compile Include="frmWorkFlowMed.cs">
       <SubType>Form</SubType>
@@ -61,11 +70,17 @@
       <DependentUpon>frmWorkFlowMed.cs</DependentUpon>
     </Compile>
     <Compile Include="Globale.cs" />
+    <Compile Include="Historique.cs" />
+    <Compile Include="Medicament.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="utilisateur.cs" />
+    <Compile Include="WorkFlow.cs" />
     <EmbeddedResource Include="frmAccueil.resx">
       <DependentUpon>frmAccueil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMedAuto.resx">
+      <DependentUpon>frmMedAuto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmWorkFlowMed.resx">
       <DependentUpon>frmWorkFlowMed.cs</DependentUpon>
