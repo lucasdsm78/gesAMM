@@ -19,6 +19,7 @@ namespace gsb_gesAMM
             this.wkf_etp_num = leWkfEtpNum;
             this.wkf_dcs_id = leWkdDcsId;
             this.wkf_med_dl = leWkfMedDl;
+            this.medicament = null;
         }
 
         public DateTime getWkfDateDecision() { return this.wkf_date_decision; }

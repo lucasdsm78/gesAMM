@@ -16,6 +16,7 @@ namespace gsb_gesAMM
         private string med_amm;
         private int med_derniereEtape;
         private string med_CodeFamille;
+        private List<WorkFlow> lesEtapes;
 
 
         public Medicament(string leMedDepotLegal, string leMedNomCommercial, string leMedComposition, string leMedEffets, string leMedContreIndications, string leMedAmm, int leMedDerniereEtape, string leMedCodeFamille)
@@ -27,6 +28,7 @@ namespace gsb_gesAMM
             this.med_contreindication = leMedContreIndications;
             this.med_amm = leMedAmm;
             this.med_CodeFamille = leMedCodeFamille;
+            this.lesEtapes = new List<WorkFlow>();
         }
 
         public string getMedDepotLegal() { return this.med_depotlegal; }
@@ -37,5 +39,7 @@ namespace gsb_gesAMM
         public string getMedAmm() { return this.med_amm; }
         public int getMedDerniereEtape() { return this.med_derniereEtape; }
         public string getMedCodeFamille() { return this.med_CodeFamille; }
+
+        public List<WorkFlow> getLesEtapes() { return this.lesEtapes; }
     }
 }
