@@ -19,7 +19,12 @@ namespace gsb_gesAMM
 
         private void frmAccueil_Load(object sender, EventArgs e)
         {
-            Globale.connect();   
+            Globale.connect();
+            Globale.lesEtapes = new List<Etape>();
+            Globale.lesDecisions = new List<Decision>();
+            Globale.lesFamilles = new Dictionary<string, Famille>();
+            Globale.lesMedicaments = new Dictionary<string, Medicament>();
+
         }
 
         private void btConnexion_Click(object sender, EventArgs e)

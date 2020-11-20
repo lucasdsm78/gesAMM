@@ -11,6 +11,12 @@ namespace gsb_gesAMM
     {
         public static SqlConnection cnx;
 
+        public static Dictionary<string, Famille> lesFamilles;
+        public static Dictionary<string, Medicament> lesMedicaments;
+
+        public static List<Decision> lesDecisions;
+        public static List<Etape> lesEtapes;
+
         public static void connect()
         {
              Globale.cnx = new System.Data.SqlClient.SqlConnection();
