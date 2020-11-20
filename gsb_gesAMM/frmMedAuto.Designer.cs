@@ -135,7 +135,7 @@
             this.Controls.Add(this.lvListMedAuto);
             this.Controls.Add(this.lvListMed);
             this.Name = "frmMedAuto";
-            this.Text = "Consulter médicament autorisé";
+            this.Text = "Consulter médicaments autorisés7";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
 
