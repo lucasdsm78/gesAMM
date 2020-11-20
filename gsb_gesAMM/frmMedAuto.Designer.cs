@@ -48,6 +48,7 @@
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
+            this.lvListMed.FullRowSelect = true;
             this.lvListMed.Location = new System.Drawing.Point(13, 13);
             this.lvListMed.Name = "lvListMed";
             this.lvListMed.Size = new System.Drawing.Size(775, 168);
