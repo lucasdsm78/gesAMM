@@ -11,7 +11,7 @@ namespace gsb_gesAMM
         private DateTime wkf_date_decision;
         private int wkf_etp_num;
         private int wkf_dcs_id;
-        private string wkf_med_Id;
+        private string wkf_med_id;
 
         public WorkFlow(DateTime leWkfDatDecision, int leWkfEtpNum, int leWkdDcsId, string leWkfMedDl)
         {
