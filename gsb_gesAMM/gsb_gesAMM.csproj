@@ -63,6 +63,18 @@
     <Compile Include="frmMedAuto.Designer.cs">
       <DependentUpon>frmMedAuto.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenu.Designer.cs">
+      <DependentUpon>frmMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNouvMed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNouvMed.Designer.cs">
+      <DependentUpon>frmNouvMed.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmWorkFlowMed.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +99,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMedAuto.resx">
       <DependentUpon>frmMedAuto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenu.resx">
+      <DependentUpon>frmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNouvMed.resx">
+      <DependentUpon>frmNouvMed.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmWorkFlowMed.resx">
       <DependentUpon>frmWorkFlowMed.cs</DependentUpon>
