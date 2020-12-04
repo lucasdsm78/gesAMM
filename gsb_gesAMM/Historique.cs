@@ -22,6 +22,7 @@ namespace gsb_gesAMM
         {
             this.htq_id = leHtqId;
             this.htq_user = leHtqtUser;
+            this.htq_etp_num = leHtqEtpNum;
             this.htq_date_maj = leHtqDateMaj;
             this.htq_date_old = leHtqDateOld;
             this.htq_date_new = leHtqDateNew;
