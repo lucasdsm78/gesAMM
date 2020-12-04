@@ -31,5 +31,27 @@ namespace gsb_gesAMM
                 return false;
             }
         }
+
+        public static List<WorkFlow> addWorkFlow()
+        {
+            List<WorkFlow> laListe = new List<WorkFlow>();
+
+            SqlCommand maRequete = new SqlCommand("prc_workflow_liste", Globale.cnx);
+            maRequete.CommandType = System.Data.CommandType.StoredProcedure;
+
+            SqlDataReader sqlDataReader = maRequete.ExecuteReader();
+
+            while (sqlDataReader.Read())
+            {
+                DateTime laDate = DateTime.Parse(sqlDataReader["wkf_date_decision"].ToString());
+                int numEtape = int.Parse(sqlDataReader["wkf_etp_id"].ToString());
+                int numDecision = int.Parse(sqlDataReader["wkf_dcs_id"].ToString());
+                string codeMed = sqlDataReader["wkf_med_id"].ToString();
+
+                laListe.Add(new WorkFlow(laDate, numEtape, numDecision, codeMed));
+            }
+
+            return laListe;
+        }
     }
 }
