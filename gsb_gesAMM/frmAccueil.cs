@@ -24,7 +24,13 @@ namespace gsb_gesAMM
             Globale.lesDecisions = new List<Decision>();
             Globale.lesFamilles = new Dictionary<string, Famille>();
             Globale.lesMedicaments = new Dictionary<string, Medicament>();
+            Globale.lesUtilisateurs = new List<Utilisateur>();
 
+            bd.lireLesEtapes();
+            bd.lireLesDecisions();
+            bd.lireLesFamilles();
+            bd.lireLesMedicaments();
+            bd.lireLesUtilisateurs();
         }
 
         private void btConnexion_Click(object sender, EventArgs e)
@@ -37,8 +43,15 @@ namespace gsb_gesAMM
             {
                 if (bd.verifConnexion(tbLogin.Text, tbMdp.Text))
                 {
-                    MessageBox.Show("Connexion réussie");
-                }                
+                    MessageBox.Show("Connexion réussie", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    frmMenu open = new frmMenu();
+                    open.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Identitée introuvable", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
     }

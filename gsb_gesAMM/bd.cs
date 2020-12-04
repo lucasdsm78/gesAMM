@@ -1,37 +1,39 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Data.SqlClient;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace gsb_gesAMM
 {
     class bd
     {
+        public static string GenerateSHA256Hash(String input)
+        {
+            byte[] bytes = System.Text.Encoding.UTF8.GetBytes(input);
+            System.Security.Cryptography.SHA256Managed sha256hashstring = new System.Security.Cryptography.SHA256Managed();
+            byte[] hash = sha256hashstring.ComputeHash(bytes);
+            return Convert.ToBase64String(hash);
+        }
+
         public static Boolean verifConnexion(string username, string password)
         {
-            SqlCommand maRequete = new SqlCommand("prc_verifConnexion", Globale.cnx);
-            maRequete.CommandType = System.Data.CommandType.StoredProcedure;
+            int idx = 0;
+            Boolean trouve = false;
 
-            SqlParameter paramUsername = new SqlParameter("@usr_username", System.Data.SqlDbType.Int, 30);
-            paramUsername.Value = username;
-
-            SqlParameter paramPassword = new SqlParameter("@usr_password", System.Data.SqlDbType.Char, 30);
-            paramPassword.Value = password;
-
-            maRequete.Parameters.Add(paramUsername);
-            maRequete.Parameters.Add(paramPassword);
-            
-            try
+            while (idx < Globale.lesUtilisateurs.Count && !trouve)
             {
-                maRequete.ExecuteNonQuery();
-                return true;
+                Utilisateur unUtilisateur = Globale.lesUtilisateurs.ElementAt(idx);
+
+                if (unUtilisateur.getUsername() == username && unUtilisateur.getPassword() == GenerateSHA256Hash(password))
+                {
+                    trouve = true;
+                }
+                else
+                {
+                    idx++;
+                }
             }
-            catch
-            {
-                return false;
-            }
+
+            return trouve;
         }
 
         public static void lireLesMedicaments()
@@ -48,23 +50,33 @@ namespace gsb_gesAMM
             //boucle de lecture des clients avec ajout dans la collection
             while (SqlExec.Read())
             {
+                Medicament unMedicament = null;
+                int? med_derniereEtapeNull = 0;
+
                 string depotLegal = SqlExec["med_depotLegal"].ToString();
                 string med_nomCommercial = SqlExec["med_nomCommercial"].ToString();
                 string med_composition = SqlExec["med_composition"].ToString();
                 string med_effets = SqlExec["med_effets"].ToString();
                 string med_contreIndications = SqlExec["med_contreIndications"].ToString();
                 string med_amm = SqlExec["med_amm"].ToString();
-                int med_derniereEtape = int.Parse(SqlExec["med_derniereEtape"].ToString());
-                string med_codeFamille = SqlExec["nomClient"].ToString();
+                string med_codeFamille = SqlExec["med_codeFamille"].ToString();
 
-                Medicament leMedicament = new Medicament(depotLegal, med_nomCommercial, med_composition, med_effets, med_contreIndications, med_amm, med_derniereEtape, med_codeFamille);
+                if (int.TryParse(SqlExec["med_derniereEtape"].ToString(), out int med_derniereEtape))
+                {
+                    unMedicament = new Medicament(depotLegal, med_nomCommercial, med_composition, med_effets, med_contreIndications, med_amm, med_derniereEtape, med_codeFamille);
+                }
+                else
+                {
+                    unMedicament = new Medicament(depotLegal, med_nomCommercial, med_composition, med_effets, med_contreIndications, med_amm, med_derniereEtapeNull.GetValueOrDefault(), med_codeFamille);
+                }
 
-                Globale.lesMedicaments.Add(depotLegal, leMedicament);
+                Globale.lesMedicaments.Add(depotLegal, unMedicament);
 
                 //objet SQLCommand pour définir la procédure stockée à utiliser
                 SqlCommand maRequeteWorkflow = new SqlCommand("prc_listeWorkflow", Globale.cnx);
                 maRequeteWorkflow.CommandType = System.Data.CommandType.StoredProcedure;
-                SqlParameter paramDepotLegal = new SqlParameter("@depotLegal", System.Data.SqlDbType.Int, 10);
+
+                SqlParameter paramDepotLegal = new SqlParameter("@numMedicament", System.Data.SqlDbType.NVarChar, 10);
                 paramDepotLegal.Value = depotLegal;
 
                 //ajout du paramètre à la procédure stockée
@@ -73,14 +85,23 @@ namespace gsb_gesAMM
 
                 while (SqlExecWorkflow.Read())
                 {
-                    DateTime wkf_date_decision = DateTime.Parse(SqlExec["wkf_date_decision"].ToString());
-                    int wkf_etp_num = int.Parse(SqlExec["wkf_etp_num"].ToString());
-                    int wkf_dcs_id = int.Parse(SqlExec["wkf_dcs_id"].ToString());
+                    WorkFlow unWorkflow = null;
+                    DateTime? uneDateNull = null;
+
+                    int wkf_etp_num = int.Parse(SqlExecWorkflow["wkf_etp_num"].ToString());
+                    int wkf_dcs_id = int.Parse(SqlExecWorkflow["wkf_dcs_id"].ToString());
                     string leDepotLegal = depotLegal;
 
-                    WorkFlow leWorkflow = new WorkFlow(wkf_date_decision, wkf_etp_num, wkf_dcs_id, leDepotLegal);
-                    leMedicament.ajouterWorkflow(leWorkflow);
+                    if (DateTime.TryParse(SqlExecWorkflow["wkf_date_decision"].ToString(), out DateTime uneDate))
+                    {
+                        unWorkflow = new WorkFlow(uneDate, wkf_etp_num, wkf_dcs_id, leDepotLegal);
+                    }
+                    else
+                    {
+                        unWorkflow = new WorkFlow(uneDateNull.GetValueOrDefault(), wkf_etp_num, wkf_dcs_id, leDepotLegal);
+                    }
 
+                    unMedicament.ajouterWorkflow(unWorkflow);
                 }
             }
         }
@@ -121,12 +142,22 @@ namespace gsb_gesAMM
             //boucle de lecture des clients avec ajout dans la collection
             while (SqlExec.Read())
             {
+                Etape uneEtape = null;
+                DateTime? uneDateNull = null;
+
                 int unNum = int.Parse(SqlExec["etp_num"].ToString());
                 string unLibelle = SqlExec["etp_libelle"].ToString();
                 string uneNorme = SqlExec["etp_norme"].ToString();
-                DateTime uneDate = DateTime.Parse(SqlExec["etp_norme_date"].ToString());
 
-                Etape uneEtape = new Etape(unNum, unLibelle, uneNorme, uneDate);
+                if (DateTime.TryParse(SqlExec["etp_date_norme"].ToString(), out DateTime uneDate))
+                {
+                    uneEtape = new Etape(unNum, unLibelle, uneNorme, uneDate);
+                }
+                else
+                {
+                    uneEtape = new Etape(unNum, unLibelle, uneNorme, uneDateNull.GetValueOrDefault());
+                }
+
                 Globale.lesEtapes.Add(uneEtape);
             }
         }
@@ -145,12 +176,46 @@ namespace gsb_gesAMM
             //boucle de lecture des clients avec ajout dans la collection
             while (SqlExec.Read())
             {
+                Famille uneFamille = null;
+                int? nbMediAmmNull = 0;
+
                 string unCode = SqlExec["fam_code"].ToString();
                 string unLibelle = SqlExec["fam_libelle"].ToString();
-                int nbMediAmm = int.Parse(SqlExec["fam_nbMediAmm"].ToString());
 
-                Famille uneFamille = new Famille(unCode, unLibelle, nbMediAmm);
+                if (int.TryParse(SqlExec["fam_nbMediAmm"].ToString(), out int nbMediAmm))
+                {
+                    uneFamille = new Famille(unCode, unLibelle, nbMediAmm);
+                }
+                else
+                {
+                    nbMediAmmNull = null;
+                    uneFamille = new Famille(unCode, unLibelle, nbMediAmmNull.GetValueOrDefault());
+                }
+
                 Globale.lesFamilles.Add(unCode, uneFamille);
+            }
+        }
+
+        public static void lireLesUtilisateurs()
+        {
+            Globale.lesUtilisateurs.Clear();
+
+            //objet SQLCommand pour définir la procédure stockée à utiliser
+            SqlCommand maRequete = new SqlCommand("prc_utilisateur", Globale.cnx);
+            maRequete.CommandType = System.Data.CommandType.StoredProcedure;
+
+            // exécuter la procedure stockée dans un curseur 
+            SqlDataReader SqlExec = maRequete.ExecuteReader();
+
+            //boucle de lecture des clients avec ajout dans la collection
+            while (SqlExec.Read())
+            {
+                int unId = int.Parse(SqlExec["usr_id"].ToString());
+                string unPseudo = SqlExec["usr_username"].ToString();
+                string unPassword = SqlExec["usr_password"].ToString();
+
+                Utilisateur unUtilisateur = new Utilisateur(unId, unPseudo, unPassword);
+                Globale.lesUtilisateurs.Add(unUtilisateur);
             }
         }
     }

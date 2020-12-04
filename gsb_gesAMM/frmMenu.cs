@@ -17,5 +17,11 @@ namespace gsb_gesAMM
             InitializeComponent();
         }
 
+        private void listeToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmWorkFlowMed open = new frmWorkFlowMed();
+            open.MdiParent = this;
+            open.Show();
+        }
     }
 }

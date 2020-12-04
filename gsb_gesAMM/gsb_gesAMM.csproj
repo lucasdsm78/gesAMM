@@ -75,6 +75,12 @@
     <Compile Include="frmNouvMed.Designer.cs">
       <DependentUpon>frmNouvMed.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSaisieDecisionEtape.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSaisieDecisionEtape.Designer.cs">
+      <DependentUpon>frmSaisieDecisionEtape.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmWorkFlowMed.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,17 +88,10 @@
       <DependentUpon>frmWorkFlowMed.cs</DependentUpon>
     </Compile>
     <Compile Include="Globale.cs" />
-    <Compile Include="Historique.cs" />
     <Compile Include="Medicament.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="test.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="test.Designer.cs">
-      <DependentUpon>test.cs</DependentUpon>
-    </Compile>
-    <Compile Include="utilisateur.cs" />
+    <Compile Include="Utilisateur.cs" />
     <Compile Include="WorkFlow.cs" />
     <EmbeddedResource Include="frmAccueil.resx">
       <DependentUpon>frmAccueil.cs</DependentUpon>
@@ -105,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmNouvMed.resx">
       <DependentUpon>frmNouvMed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSaisieDecisionEtape.resx">
+      <DependentUpon>frmSaisieDecisionEtape.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmWorkFlowMed.resx">
       <DependentUpon>frmWorkFlowMed.cs</DependentUpon>

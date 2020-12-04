@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace gsb_gesAMM
 {
-    class utilisateur
+    class Utilisateur
     {
         private int idUtilisateur;
         private string username;
         private string password;
 
-        public utilisateur(int leId, string leUsername, string lePassword)
+        public Utilisateur(int leId, string leUsername, string lePassword)
         {
             this.idUtilisateur = leId;
             this.username = leUsername;

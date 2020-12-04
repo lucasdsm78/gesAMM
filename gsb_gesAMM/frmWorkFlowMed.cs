@@ -16,5 +16,10 @@ namespace gsb_gesAMM
         {
             InitializeComponent();
         }
+
+        private void btQuitter_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

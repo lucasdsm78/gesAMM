@@ -14,6 +14,7 @@ namespace gsb_gesAMM
         public static Dictionary<string, Famille> lesFamilles;
         public static Dictionary<string, Medicament> lesMedicaments;
 
+        public static List<Utilisateur> lesUtilisateurs;
         public static List<Decision> lesDecisions;
         public static List<Etape> lesEtapes;
 

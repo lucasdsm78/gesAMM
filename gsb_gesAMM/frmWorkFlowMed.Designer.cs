@@ -31,30 +31,32 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.lvMed = new System.Windows.Forms.ListView();
-            this.btQuitter = new System.Windows.Forms.Button();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btQuitter = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(244, 25);
+            this.label1.Location = new System.Drawing.Point(366, 38);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 13);
+            this.label1.Size = new System.Drawing.Size(164, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Choisir le médicament";
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(359, 22);
+            this.comboBox1.Location = new System.Drawing.Point(538, 34);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(174, 21);
+            this.comboBox1.Size = new System.Drawing.Size(259, 28);
             this.comboBox1.TabIndex = 1;
             // 
             // lvMed
@@ -66,21 +68,14 @@
             this.columnHeader4,
             this.columnHeader5,
             this.columnHeader6});
-            this.lvMed.Location = new System.Drawing.Point(13, 60);
+            this.lvMed.HideSelection = false;
+            this.lvMed.Location = new System.Drawing.Point(20, 92);
+            this.lvMed.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lvMed.Name = "lvMed";
-            this.lvMed.Size = new System.Drawing.Size(775, 308);
+            this.lvMed.Size = new System.Drawing.Size(1160, 472);
             this.lvMed.TabIndex = 2;
             this.lvMed.UseCompatibleStateImageBehavior = false;
             this.lvMed.View = System.Windows.Forms.View.Details;
-            // 
-            // btQuitter
-            // 
-            this.btQuitter.Location = new System.Drawing.Point(310, 388);
-            this.btQuitter.Name = "btQuitter";
-            this.btQuitter.Size = new System.Drawing.Size(187, 33);
-            this.btQuitter.TabIndex = 3;
-            this.btQuitter.Text = "Quitter";
-            this.btQuitter.UseVisualStyleBackColor = true;
             // 
             // columnHeader1
             // 
@@ -112,17 +107,30 @@
             this.columnHeader6.Text = "Date norme";
             this.columnHeader6.Width = 120;
             // 
+            // btQuitter
+            // 
+            this.btQuitter.Location = new System.Drawing.Point(465, 597);
+            this.btQuitter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btQuitter.Name = "btQuitter";
+            this.btQuitter.Size = new System.Drawing.Size(280, 51);
+            this.btQuitter.TabIndex = 3;
+            this.btQuitter.Text = "Quitter";
+            this.btQuitter.UseVisualStyleBackColor = true;
+            this.btQuitter.Click += new System.EventHandler(this.btQuitter_Click);
+            // 
             // frmWorkFlowMed
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1200, 692);
             this.Controls.Add(this.btQuitter);
             this.Controls.Add(this.lvMed);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmWorkFlowMed";
             this.Text = "Consultation des médicaments en WorkFlow";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
             this.PerformLayout();
 
