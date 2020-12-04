@@ -16,5 +16,15 @@ namespace gsb_gesAMM
         {
             InitializeComponent();
         }
+
+        private void btValider_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmSaisieDecisionEtape_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
