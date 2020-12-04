@@ -27,7 +27,6 @@ namespace gsb_gesAMM
             this.med_effets = leMedEffets;
             this.med_contreindication = leMedContreIndications;
             this.med_amm = leMedAmm;
-            this.med_derniereEtape = leMedDerniereEtape;
             this.med_CodeFamille = leMedCodeFamille;
             this.lesEtapes = new List<WorkFlow>();
         }
@@ -42,5 +41,10 @@ namespace gsb_gesAMM
         public string getMedCodeFamille() { return this.med_CodeFamille; }
 
         public List<WorkFlow> getLesEtapes() { return this.lesEtapes; }
+
+        public void ajouterWorkflow(WorkFlow leWorkflow)
+        {
+            this.lesEtapes.Add(leWorkflow);
+        }
     }
 }
