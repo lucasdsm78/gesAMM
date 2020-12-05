@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbMed = new System.Windows.Forms.ComboBox();
             this.lvMed = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -50,14 +50,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Choisir le médicament";
             // 
-            // comboBox1
+            // cbMed
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(538, 34);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(259, 28);
-            this.comboBox1.TabIndex = 1;
+            this.cbMed.FormattingEnabled = true;
+            this.cbMed.Location = new System.Drawing.Point(538, 34);
+            this.cbMed.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cbMed.Name = "cbMed";
+            this.cbMed.Size = new System.Drawing.Size(259, 28);
+            this.cbMed.TabIndex = 1;
+            this.cbMed.SelectedIndexChanged += new System.EventHandler(this.cbMed_SelectedIndexChanged);
             // 
             // lvMed
             // 
@@ -125,12 +126,13 @@
             this.ClientSize = new System.Drawing.Size(1200, 692);
             this.Controls.Add(this.btQuitter);
             this.Controls.Add(this.lvMed);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbMed);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmWorkFlowMed";
             this.Text = "Consultation des médicaments en WorkFlow";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmWorkFlowMed_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,7 +141,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbMed;
         private System.Windows.Forms.ListView lvMed;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
