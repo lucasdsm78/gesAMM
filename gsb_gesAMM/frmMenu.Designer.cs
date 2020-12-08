@@ -44,7 +44,6 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.empruntToolStripMenuItem,
@@ -52,8 +51,8 @@
             this.adherentToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1200, 33);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1067, 28);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -65,31 +64,31 @@
             this.statistiquesToolStripMenuItem,
             this.quitterToolStripMenuItem});
             this.empruntToolStripMenuItem.Name = "empruntToolStripMenuItem";
-            this.empruntToolStripMenuItem.Size = new System.Drawing.Size(126, 29);
+            this.empruntToolStripMenuItem.Size = new System.Drawing.Size(104, 24);
             this.empruntToolStripMenuItem.Text = "Médicament";
             // 
             // nouveauToolStripMenuItem
             // 
             this.nouveauToolStripMenuItem.Name = "nouveauToolStripMenuItem";
-            this.nouveauToolStripMenuItem.Size = new System.Drawing.Size(631, 34);
+            this.nouveauToolStripMenuItem.Size = new System.Drawing.Size(517, 26);
             this.nouveauToolStripMenuItem.Text = "Ajouter";
             // 
             // retourToolStripMenuItem
             // 
             this.retourToolStripMenuItem.Name = "retourToolStripMenuItem";
-            this.retourToolStripMenuItem.Size = new System.Drawing.Size(631, 34);
+            this.retourToolStripMenuItem.Size = new System.Drawing.Size(517, 26);
             this.retourToolStripMenuItem.Text = "Consultation en cours de validation";
             // 
             // statistiquesToolStripMenuItem
             // 
             this.statistiquesToolStripMenuItem.Name = "statistiquesToolStripMenuItem";
-            this.statistiquesToolStripMenuItem.Size = new System.Drawing.Size(631, 34);
+            this.statistiquesToolStripMenuItem.Size = new System.Drawing.Size(517, 26);
             this.statistiquesToolStripMenuItem.Text = "Consultation du nombre de médicaments autorisés par la famille ";
             // 
             // quitterToolStripMenuItem
             // 
             this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
-            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(631, 34);
+            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(517, 26);
             this.quitterToolStripMenuItem.Text = "Quitter l\'application";
             // 
             // documentToolStripMenuItem
@@ -98,19 +97,20 @@
             this.papierToolStripMenuItem,
             this.numeriqueToolStripMenuItem});
             this.documentToolStripMenuItem.Name = "documentToolStripMenuItem";
-            this.documentToolStripMenuItem.Size = new System.Drawing.Size(72, 29);
+            this.documentToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
             this.documentToolStripMenuItem.Text = "Etape";
             // 
             // papierToolStripMenuItem
             // 
             this.papierToolStripMenuItem.Name = "papierToolStripMenuItem";
-            this.papierToolStripMenuItem.Size = new System.Drawing.Size(369, 34);
+            this.papierToolStripMenuItem.Size = new System.Drawing.Size(300, 26);
             this.papierToolStripMenuItem.Text = "Saisie de la décision d\'une étape";
+            this.papierToolStripMenuItem.Click += new System.EventHandler(this.papierToolStripMenuItem_Click);
             // 
             // numeriqueToolStripMenuItem
             // 
             this.numeriqueToolStripMenuItem.Name = "numeriqueToolStripMenuItem";
-            this.numeriqueToolStripMenuItem.Size = new System.Drawing.Size(369, 34);
+            this.numeriqueToolStripMenuItem.Size = new System.Drawing.Size(300, 26);
             this.numeriqueToolStripMenuItem.Text = "Mise à jour des étapes normées";
             // 
             // adherentToolStripMenuItem
@@ -118,27 +118,27 @@
             this.adherentToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.listeToolStripMenuItem1});
             this.adherentToolStripMenuItem.Name = "adherentToolStripMenuItem";
-            this.adherentToolStripMenuItem.Size = new System.Drawing.Size(104, 29);
+            this.adherentToolStripMenuItem.Size = new System.Drawing.Size(84, 24);
             this.adherentToolStripMenuItem.Text = "Workflow";
             // 
             // listeToolStripMenuItem1
             // 
             this.listeToolStripMenuItem1.Name = "listeToolStripMenuItem1";
-            this.listeToolStripMenuItem1.Size = new System.Drawing.Size(551, 34);
+            this.listeToolStripMenuItem1.Size = new System.Drawing.Size(447, 26);
             this.listeToolStripMenuItem1.Text = "Consultation du workflow des étapes d\'un médicament";
             this.listeToolStripMenuItem1.Click += new System.EventHandler(this.listeToolStripMenuItem1_Click);
             // 
             // frmMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 814);
+            this.ClientSize = new System.Drawing.Size(1067, 651);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu de l\'application";
+            this.Load += new System.EventHandler(this.frmMenu_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

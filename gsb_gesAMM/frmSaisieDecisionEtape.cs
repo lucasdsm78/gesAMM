@@ -22,9 +22,20 @@ namespace gsb_gesAMM
 
         }
 
+        private void chargerListeMedicament()
+        {
+            bd.lireLesMedicaments();
+
+            foreach (string depotlegal in Globale.lesMedicaments.Keys)
+            {
+                Medicament leMedicament = Globale.lesMedicaments[depotlegal];
+                cbMedicament.Items.Add(leMedicament.getMedDepotLegal());
+            }
+        }
+
         private void frmSaisieDecisionEtape_Load(object sender, EventArgs e)
         {
-
+            chargerListeMedicament();
         }
     }
 }

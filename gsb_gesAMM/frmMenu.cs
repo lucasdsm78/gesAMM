@@ -23,5 +23,17 @@ namespace gsb_gesAMM
             open.MdiParent = this;
             open.Show();
         }
+
+        private void frmMenu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void papierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSaisieDecisionEtape open = new frmSaisieDecisionEtape();
+            open.MdiParent = this;
+            open.Show();
+        }
     }
 }
