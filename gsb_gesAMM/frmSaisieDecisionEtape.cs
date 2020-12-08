@@ -25,14 +25,14 @@ namespace gsb_gesAMM
             string medId = "";
             DateTime max = DateTime.MinValue;
             string depotlegalchoisi = cbMedicament.Text;
-            foreach(string laReference in Globale.lesMedicaments.Keys)
+            foreach (string laReference in Globale.lesMedicaments.Keys)
             {
                 Medicament unMedicament = Globale.lesMedicaments[laReference];
-                foreach(WorkFlow leWorkflow in unMedicament.getLesEtapes())
+                foreach (WorkFlow leWorkflow in unMedicament.getLesEtapes())
                 {
-                    if(leWorkflow.getWkfMedId() == depotlegalchoisi)
+                    if (leWorkflow.getWkfMedId() == depotlegalchoisi)
                     {
-                        if(leWorkflow.getWkfDateDecision() > max)
+                        if (leWorkflow.getWkfDateDecision() > max)
                         {
                             max = leWorkflow.getWkfDateDecision();
                             decisionId = leWorkflow.getWkfDcsId();
@@ -42,7 +42,7 @@ namespace gsb_gesAMM
                     }
                 }
             }
-            if(decisionId == 1)
+            if (decisionId == 1)
             {
                 MessageBox.Show("la dernière étape est acceptée", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -50,9 +50,9 @@ namespace gsb_gesAMM
                 gbProchaineEtape.Visible = true;
                 btValidDecision.Visible = true;
 
-                foreach(Etape uneEtape in Globale.lesEtapes)
+                foreach (Etape uneEtape in Globale.lesEtapes)
                 {
-                    if(uneEtape.getEtpNum() == etpNum)
+                    if (uneEtape.getEtpNum() == etpNum)
                     {
                         tbDate.Text = max.ToShortDateString();
                         tbDateNorme.Text = uneEtape.getEtpDateNorme().ToShortDateString();
@@ -85,6 +85,18 @@ namespace gsb_gesAMM
             gbDerniereEtape.Visible = false;
             gbProchaineEtape.Visible = false;
             btValidDecision.Visible = false;
+        }
+
+        private void btValidDecision_Click(object sender, EventArgs e)
+        {
+            if (tbDateDecision.Text == "" || tbTypeDecision.Text == "")
+            {
+                MessageBox.Show("Informations manquantes", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+
+            }
         }
     }
 }

@@ -218,5 +218,41 @@ namespace gsb_gesAMM
                 Globale.lesUtilisateurs.Add(unUtilisateur);
             }
         }
+
+        public static Boolean ajouterWorkflow(DateTime laDateDecision, int leWkfEtpNum, int leWkfDcsId, int leWkfMedId)
+        {
+            SqlCommand maRequete = new SqlCommand("prc_ajouterWorkflow", Globale.cnx);
+            // Il s’agit d’une procédure stockée:
+            maRequete.CommandType = System.Data.CommandType.StoredProcedure;
+
+            // Ajouter les parameters à la procédure stockée
+            SqlParameter paramDateDecision = new SqlParameter("@wkf_date_decision", System.Data.SqlDbType.DateTime, 40);
+            paramDateDecision.Value = laDateDecision;
+
+            SqlParameter paramWkfEtpNum = new SqlParameter("@wkf_etp_num", System.Data.SqlDbType.Int, 30);
+            paramWkfEtpNum.Value = leWkfEtpNum;
+
+            SqlParameter paramWkfDcsId = new SqlParameter("@wkf_dcs_id", System.Data.SqlDbType.Int, 30);
+            paramWkfDcsId.Value = leWkfDcsId;
+
+            SqlParameter paramWkfMedId = new SqlParameter("@wkf_med_id", System.Data.SqlDbType.Int, 30);
+            paramWkfMedId.Value = leWkfMedId;
+
+            maRequete.Parameters.Add(paramDateDecision);
+            maRequete.Parameters.Add(paramWkfEtpNum);
+            maRequete.Parameters.Add(paramWkfDcsId);
+            maRequete.Parameters.Add(paramWkfMedId);
+
+            // exécuter la procedure stockée
+            try
+            {
+                maRequete.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }
