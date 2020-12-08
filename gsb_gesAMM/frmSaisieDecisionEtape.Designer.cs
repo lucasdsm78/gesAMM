@@ -236,6 +236,7 @@
             this.btValidDecision.TabIndex = 16;
             this.btValidDecision.Text = "Valider la décision";
             this.btValidDecision.UseVisualStyleBackColor = true;
+            this.btValidDecision.Click += new System.EventHandler(this.btValidDecision_Click);
             // 
             // frmSaisieDecisionEtape
             // 

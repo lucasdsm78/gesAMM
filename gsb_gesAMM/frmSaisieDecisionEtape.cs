@@ -82,6 +82,7 @@ namespace gsb_gesAMM
         private void frmSaisieDecisionEtape_Load(object sender, EventArgs e)
         {
             chargerListeMedicament();
+
             gbDerniereEtape.Visible = false;
             gbProchaineEtape.Visible = false;
             btValidDecision.Visible = false;
@@ -89,13 +90,29 @@ namespace gsb_gesAMM
 
         private void btValidDecision_Click(object sender, EventArgs e)
         {
+            int wkfDcsId = 0;
+            foreach(Decision uneDecision in Globale.lesDecisions)
+            {
+                if(uneDecision.getDcsLibelle() == tbTypeDecision.Text)
+                {
+                    wkfDcsId = uneDecision.getDcsId();
+                }
+            }
+
             if (tbDateDecision.Text == "" || tbTypeDecision.Text == "")
             {
                 MessageBox.Show("Informations manquantes", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-
+                if(wkfDcsId == 0)
+                {
+                    MessageBox.Show("Décision inexistante", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    if(bd.ajouterWorkflow(DateTime.Parse(tbDateDecision.Text), ldldld, wkfDcsId,  )
+                }
             }
         }
     }
