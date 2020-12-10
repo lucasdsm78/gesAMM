@@ -91,8 +91,9 @@ namespace gsb_gesAMM
         private void btValidDecision_Click(object sender, EventArgs e)
         {
             string depotlegalchoisi = cbMedicament.Text;
+            int wkfEtpNum = 0;
             int wkfDcsId = 0;
-            foreach(Decision uneDecision in Globale.lesDecisions)
+            foreach (Decision uneDecision in Globale.lesDecisions)
             {
                 if(uneDecision.getDcsLibelle() == tbTypeDecision.Text)
                 {
@@ -118,7 +119,7 @@ namespace gsb_gesAMM
                     }
                     else
                     {
-                        MessageBox.Show("Erreur dans l'ajout du client", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Erreur dans l'ajout du workflow", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

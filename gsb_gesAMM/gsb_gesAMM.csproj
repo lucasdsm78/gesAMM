@@ -57,6 +57,12 @@
     <Compile Include="frmAccueil.Designer.cs">
       <DependentUpon>frmAccueil.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMAJEtapeNormee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMAJEtapeNormee.Designer.cs">
+      <DependentUpon>frmMAJEtapeNormee.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMedAuto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,9 @@
     <Compile Include="WorkFlow.cs" />
     <EmbeddedResource Include="frmAccueil.resx">
       <DependentUpon>frmAccueil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMAJEtapeNormee.resx">
+      <DependentUpon>frmMAJEtapeNormee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMedAuto.resx">
       <DependentUpon>frmMedAuto.cs</DependentUpon>

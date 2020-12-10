@@ -226,16 +226,16 @@ namespace gsb_gesAMM
             maRequete.CommandType = System.Data.CommandType.StoredProcedure;
 
             // Ajouter les parameters à la procédure stockée
-            SqlParameter paramDateDecision = new SqlParameter("@wkf_date_decision", System.Data.SqlDbType.DateTime, 40);
+            SqlParameter paramDateDecision = new SqlParameter("@laDateDecision", System.Data.SqlDbType.DateTime, 40);
             paramDateDecision.Value = laDateDecision;
 
-            SqlParameter paramWkfEtpNum = new SqlParameter("@wkf_etp_num", System.Data.SqlDbType.Int, 30);
+            SqlParameter paramWkfEtpNum = new SqlParameter("@leWkfEtpNum", System.Data.SqlDbType.Int, 30);
             paramWkfEtpNum.Value = leWkfEtpNum;
 
-            SqlParameter paramWkfDcsId = new SqlParameter("@wkf_dcs_id", System.Data.SqlDbType.Int, 30);
+            SqlParameter paramWkfDcsId = new SqlParameter("@leWkfDcsdId", System.Data.SqlDbType.Int, 30);
             paramWkfDcsId.Value = leWkfDcsId;
 
-            SqlParameter paramWkfMedId = new SqlParameter("@wkf_med_id", System.Data.SqlDbType.NVarChar, 30);
+            SqlParameter paramWkfMedId = new SqlParameter("@leWkfMedId", System.Data.SqlDbType.NVarChar, 30);
             paramWkfMedId.Value = leWkfMedId;
 
             maRequete.Parameters.Add(paramDateDecision);
