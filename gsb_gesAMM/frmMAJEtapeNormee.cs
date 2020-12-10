@@ -20,6 +20,18 @@ namespace gsb_gesAMM
         private void frmMAJEtapeNormee_Load(object sender, EventArgs e)
         {
             gbEtapeNormee.Visible = false;
+
+            bd.lireLesClientsAvecFactures();
+            foreach (Etape uneEtape in Globale.)
+            {
+                ListViewItem maLigne = new ListViewItem();
+                maLigne.Text = leClient.getNom();
+                maLigne.SubItems.Add(laFacture.getNumFact().ToString());
+                maLigne.SubItems.Add(laFacture.getDateFact().ToShortDateString());
+                maLigne.SubItems.Add(laFacture.getMtFact().ToString());
+                lvEtapeNormee.Items.Add(maLigne);
+                
+            }
         }
     }
 }

@@ -257,5 +257,27 @@ namespace gsb_gesAMM
                 return false;
             }
         }
+
+        public static void lireLesEtapesNormees()
+        {
+            Globale.lesEtapes.Clear();
+
+            //objet SQLCommand pour définir la procédure stockée à utiliser
+            SqlCommand maRequete = new SqlCommand("prc_etape_normee", Globale.cnx);
+            maRequete.CommandType = System.Data.CommandType.StoredProcedure;
+
+            // exécuter la procedure stockée dans un curseur 
+            SqlDataReader SqlExec = maRequete.ExecuteReader();
+
+            //boucle de lecture des clients avec ajout dans la collection
+            while (SqlExec.Read())
+            {
+                int unId = int.Parse(SqlExec["dcs_id"].ToString());
+                string unLibelle = SqlExec["dcs_libelle"].ToString();
+
+                Decision uneDecision = new Decision(unId, unLibelle);
+                Globale.lesDecisions.Add(uneDecision);
+            }
+        }
     }
 }

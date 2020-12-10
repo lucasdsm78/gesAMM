@@ -35,11 +35,20 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbDateNorme = new System.Windows.Forms.TextBox();
             this.btModifier = new System.Windows.Forms.Button();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.gbEtapeNormee.SuspendLayout();
             this.SuspendLayout();
             // 
             // lvEtapeNormee
             // 
+            this.lvEtapeNormee.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4});
             this.lvEtapeNormee.Location = new System.Drawing.Point(62, 57);
             this.lvEtapeNormee.Name = "lvEtapeNormee";
             this.lvEtapeNormee.Size = new System.Drawing.Size(968, 284);
@@ -102,6 +111,26 @@
             this.btModifier.Text = "Modifier";
             this.btModifier.UseVisualStyleBackColor = true;
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "numéro étape";
+            this.columnHeader1.Width = 145;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "libellé étape";
+            this.columnHeader2.Width = 157;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "norme de l\'étape";
+            this.columnHeader3.Width = 156;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "date de la norme";
+            this.columnHeader4.Width = 216;
+            // 
             // frmMAJEtapeNormee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -127,5 +156,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbNorme;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }
