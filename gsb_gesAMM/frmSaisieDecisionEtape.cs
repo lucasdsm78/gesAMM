@@ -90,6 +90,7 @@ namespace gsb_gesAMM
 
         private void btValidDecision_Click(object sender, EventArgs e)
         {
+            string depotlegalchoisi = cbMedicament.Text;
             int wkfDcsId = 0;
             foreach(Decision uneDecision in Globale.lesDecisions)
             {
@@ -111,7 +112,14 @@ namespace gsb_gesAMM
                 }
                 else
                 {
-                    if(bd.ajouterWorkflow(DateTime.Parse(tbDateDecision.Text), ldldld, wkfDcsId,  )
+                    if (bd.ajouterWorkflow(DateTime.Parse(tbDateDecision.Text), wkfEtpNum, wkfDcsId, depotlegalchoisi))
+                    {
+                        MessageBox.Show("la nouvelle étape a bien été ajoutée", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erreur dans l'ajout du client", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }

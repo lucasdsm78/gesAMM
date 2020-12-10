@@ -219,7 +219,7 @@ namespace gsb_gesAMM
             }
         }
 
-        public static Boolean ajouterWorkflow(DateTime laDateDecision, int leWkfEtpNum, int leWkfDcsId, int leWkfMedId)
+        public static Boolean ajouterWorkflow(DateTime laDateDecision, int leWkfEtpNum, int leWkfDcsId, string leWkfMedId)
         {
             SqlCommand maRequete = new SqlCommand("prc_ajouterWorkflow", Globale.cnx);
             // Il s’agit d’une procédure stockée:
@@ -235,7 +235,7 @@ namespace gsb_gesAMM
             SqlParameter paramWkfDcsId = new SqlParameter("@wkf_dcs_id", System.Data.SqlDbType.Int, 30);
             paramWkfDcsId.Value = leWkfDcsId;
 
-            SqlParameter paramWkfMedId = new SqlParameter("@wkf_med_id", System.Data.SqlDbType.Int, 30);
+            SqlParameter paramWkfMedId = new SqlParameter("@wkf_med_id", System.Data.SqlDbType.NVarChar, 30);
             paramWkfMedId.Value = leWkfMedId;
 
             maRequete.Parameters.Add(paramDateDecision);
@@ -243,10 +243,13 @@ namespace gsb_gesAMM
             maRequete.Parameters.Add(paramWkfDcsId);
             maRequete.Parameters.Add(paramWkfMedId);
 
+            WorkFlow newWorkflow = new WorkFlow(laDateDecision, leWkfEtpNum, leWkfDcsId, leWkfMedId);
+
             // exécuter la procedure stockée
             try
             {
                 maRequete.ExecuteNonQuery();
+                Globale.lesMedicaments[leWkfMedId].ajouterWorkflow(newWorkflow);
                 return true;
             }
             catch
