@@ -24,10 +24,24 @@ namespace gsb_gesAMM
 
         private void frmWorkFlowMed_Load(object sender, EventArgs e)
         {
+            Globale.connect();
+            Globale.lesEtapes = new List<Etape>();
+            Globale.lesDecisions = new List<Decision>();
+            Globale.lesFamilles = new Dictionary<string, Famille>();
+            Globale.lesMedicaments = new Dictionary<string, Medicament>();
+            Globale.lesUtilisateurs = new List<Utilisateur>();
+
+            bd.lireLesEtapes();
+            bd.lireLesDecisions();
+            bd.lireLesFamilles();
+            bd.lireLesMedicaments();
+            bd.lireLesUtilisateurs();
 
             DataTable maTableDocument = new DataTable();
             maTableDocument.Columns.Add("ref");
             maTableDocument.Columns.Add("titre");
+
+            maTableDocument.Rows.Add("", "CHOISIR UN MEDICAMENT");
 
             foreach (string laRef in Globale.lesMedicaments.Keys)
             {
