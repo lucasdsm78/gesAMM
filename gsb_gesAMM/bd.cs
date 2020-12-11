@@ -38,8 +38,6 @@ namespace gsb_gesAMM
 
         public static void lireLesMedicaments()
         {
-            Globale.cnx.Open();
-
             Globale.lesMedicaments.Clear();
 
             //objet SQLCommand pour définir la procédure stockée à utiliser
@@ -107,13 +105,10 @@ namespace gsb_gesAMM
                 }
             }
 
-            Globale.cnx.Close();
         }
 
         public static void lireLesDecisions()
         {
-            Globale.cnx.Open();
-
             Globale.lesDecisions.Clear();
 
             //objet SQLCommand pour définir la procédure stockée à utiliser
@@ -132,14 +127,10 @@ namespace gsb_gesAMM
                 Decision uneDecision = new Decision(unId, unLibelle);
                 Globale.lesDecisions.Add(uneDecision);
             }
-
-            Globale.cnx.Close();
         }
 
         public static void lireLesEtapes()
         {
-            Globale.cnx.Open();
-
             Globale.lesEtapes.Clear();
 
             //objet SQLCommand pour définir la procédure stockée à utiliser
@@ -171,13 +162,10 @@ namespace gsb_gesAMM
                 Globale.lesEtapes.Add(uneEtape);
             }
 
-            Globale.cnx.Close();
         }
 
         public static void lireLesFamilles()
         {
-            Globale.cnx.Open();
-
             Globale.lesFamilles.Clear();
 
             //objet SQLCommand pour définir la procédure stockée à utiliser
@@ -209,13 +197,10 @@ namespace gsb_gesAMM
                 Globale.lesFamilles.Add(unCode, uneFamille);
             }
 
-            Globale.cnx.Close();
         }
 
         public static void lireLesUtilisateurs()
         {
-            Globale.cnx.Open();
-
             Globale.lesUtilisateurs.Clear();
 
             //objet SQLCommand pour définir la procédure stockée à utiliser
@@ -235,14 +220,10 @@ namespace gsb_gesAMM
                 Utilisateur unUtilisateur = new Utilisateur(unId, unPseudo, unPassword);
                 Globale.lesUtilisateurs.Add(unUtilisateur);
             }
-
-            Globale.cnx.Close();
         }
 
         public static Boolean ajouterWorkflow(DateTime laDateDecision, int leWkfEtpNum, int leWkfDcsId, string leWkfMedId)
         {
-            Globale.cnx.Open();
-
             SqlCommand maRequete = new SqlCommand("prc_ajouterWorkflow", Globale.cnx);
             // Il s’agit d’une procédure stockée:
             maRequete.CommandType = System.Data.CommandType.StoredProcedure;
@@ -279,7 +260,6 @@ namespace gsb_gesAMM
                 return false;
             }
 
-            Globale.cnx.Close();
         }
 
         public static void lireLesEtapesNormees()
