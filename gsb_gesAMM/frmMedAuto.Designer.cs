@@ -50,10 +50,10 @@
             this.columnHeader3});
             this.lvListMed.FullRowSelect = true;
             this.lvListMed.HideSelection = false;
-            this.lvListMed.Location = new System.Drawing.Point(20, 20);
-            this.lvListMed.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.lvListMed.Location = new System.Drawing.Point(18, 16);
+            this.lvListMed.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lvListMed.Name = "lvListMed";
-            this.lvListMed.Size = new System.Drawing.Size(1160, 256);
+            this.lvListMed.Size = new System.Drawing.Size(1032, 206);
             this.lvListMed.TabIndex = 0;
             this.lvListMed.UseCompatibleStateImageBehavior = false;
             this.lvListMed.View = System.Windows.Forms.View.Details;
@@ -83,10 +83,10 @@
             this.columnHeader8,
             this.columnHeader9});
             this.lvListMedAuto.HideSelection = false;
-            this.lvListMedAuto.Location = new System.Drawing.Point(20, 288);
-            this.lvListMedAuto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.lvListMedAuto.Location = new System.Drawing.Point(18, 230);
+            this.lvListMedAuto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lvListMedAuto.Name = "lvListMedAuto";
-            this.lvListMedAuto.Size = new System.Drawing.Size(1160, 315);
+            this.lvListMedAuto.Size = new System.Drawing.Size(1032, 253);
             this.lvListMedAuto.TabIndex = 1;
             this.lvListMedAuto.UseCompatibleStateImageBehavior = false;
             this.lvListMedAuto.View = System.Windows.Forms.View.Details;
@@ -123,10 +123,10 @@
             // 
             // btQuitter
             // 
-            this.btQuitter.Location = new System.Drawing.Point(438, 623);
-            this.btQuitter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btQuitter.Location = new System.Drawing.Point(389, 498);
+            this.btQuitter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btQuitter.Name = "btQuitter";
-            this.btQuitter.Size = new System.Drawing.Size(280, 51);
+            this.btQuitter.Size = new System.Drawing.Size(249, 41);
             this.btQuitter.TabIndex = 4;
             this.btQuitter.Text = "Quitter";
             this.btQuitter.UseVisualStyleBackColor = true;
@@ -134,16 +134,17 @@
             // 
             // frmMedAuto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.btQuitter);
             this.Controls.Add(this.lvListMedAuto);
             this.Controls.Add(this.lvListMed);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmMedAuto";
             this.Text = "Consulter médicaments autorisés";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmMedAuto_Load);
             this.ResumeLayout(false);
 
         }

@@ -50,6 +50,7 @@
     <Compile Include="bd.cs" />
     <Compile Include="Decision.cs" />
     <Compile Include="Etape.cs" />
+    <Compile Include="EtapeNormee.cs" />
     <Compile Include="Famille.cs" />
     <Compile Include="frmAccueil.cs">
       <SubType>Form</SubType>

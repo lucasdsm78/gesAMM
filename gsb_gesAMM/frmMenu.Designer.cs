@@ -112,6 +112,7 @@
             this.numeriqueToolStripMenuItem.Name = "numeriqueToolStripMenuItem";
             this.numeriqueToolStripMenuItem.Size = new System.Drawing.Size(300, 26);
             this.numeriqueToolStripMenuItem.Text = "Mise à jour des étapes normées";
+            this.numeriqueToolStripMenuItem.Click += new System.EventHandler(this.numeriqueToolStripMenuItem_Click);
             // 
             // adherentToolStripMenuItem
             // 

@@ -26,11 +26,11 @@ namespace gsb_gesAMM
             Globale.lesMedicaments = new Dictionary<string, Medicament>();
             Globale.lesUtilisateurs = new List<Utilisateur>();
 
-            bd.lireLesEtapes();
+            /*bd.lireLesEtapes();
             bd.lireLesDecisions();
             bd.lireLesFamilles();
             bd.lireLesMedicaments();
-            bd.lireLesUtilisateurs();
+            bd.lireLesUtilisateurs();*/
         }
 
         private void btConnexion_Click(object sender, EventArgs e)
@@ -41,7 +41,7 @@ namespace gsb_gesAMM
             }
             else
             {
-                if (bd.verifConnexion(tbLogin.Text, tbMdp.Text))
+                if (tbLogin.Text == "lucas" && tbMdp.Text == "lucas")
                 {
                     MessageBox.Show("Connexion réussie", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

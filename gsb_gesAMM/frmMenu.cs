@@ -35,5 +35,12 @@ namespace gsb_gesAMM
             open.MdiParent = this;
             open.Show();
         }
+
+        private void numeriqueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmMAJEtapeNormee open = new frmMAJEtapeNormee();
+            open.MdiParent = this;
+            open.Show();
+        }
     }
 }

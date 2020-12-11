@@ -21,5 +21,10 @@ namespace gsb_gesAMM
         {
             this.Close();
         }
+
+        private void frmMedAuto_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
