@@ -42,5 +42,11 @@ namespace gsb_gesAMM
             open.MdiParent = this;
             open.Show();
         }
+        private void retourToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmConsulMedCoursValid open = new frmConsulMedCoursValid();
+            open.MdiParent = this;
+            open.Show();
+        }
     }
 }

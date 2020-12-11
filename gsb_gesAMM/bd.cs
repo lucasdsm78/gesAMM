@@ -359,5 +359,49 @@ namespace gsb_gesAMM
                 return false;
             }
         }
+        public static Boolean ajoutMedicament(string leDepotLegal, string leNomCommercial, string laComposition, string lesEffets, string lesContreIndic, string leCodeFamille)
+        {
+            Globale.cnx.Open();
+
+            SqlCommand maRequete = new SqlCommand("prc_ajoutMedicament", Globale.cnx);
+            maRequete.CommandType = System.Data.CommandType.StoredProcedure;
+
+            SqlParameter ParamDepot = new SqlParameter("@leDepotLegal", System.Data.SqlDbType.NVarChar, 30);
+            ParamDepot.Value = leDepotLegal;
+
+            SqlParameter ParamNomCom = new SqlParameter("@leNomCommercial", System.Data.SqlDbType.NVarChar, 45);
+            ParamNomCom.Value = leNomCommercial;
+
+            SqlParameter ParamCompo = new SqlParameter("@laComposition", System.Data.SqlDbType.NVarChar, 155);
+            ParamCompo.Value = laComposition;
+
+            SqlParameter ParamEffet = new SqlParameter("@lesEffets", System.Data.SqlDbType.NVarChar, 155);
+            ParamEffet.Value = lesEffets;
+
+            SqlParameter ParamContreIndic = new SqlParameter("@lesContreIndic", System.Data.SqlDbType.NVarChar, 155);
+            ParamContreIndic.Value = lesContreIndic;
+
+            SqlParameter ParamFamille = new SqlParameter("@leCodeFamille", System.Data.SqlDbType.NVarChar, 50);
+            ParamFamille.Value = leCodeFamille;
+
+            maRequete.Parameters.Add(ParamDepot);
+            maRequete.Parameters.Add(ParamNomCom);
+            maRequete.Parameters.Add(ParamCompo);
+            maRequete.Parameters.Add(ParamEffet);
+            maRequete.Parameters.Add(ParamContreIndic);
+            maRequete.Parameters.Add(ParamFamille);
+            try
+            {
+                maRequete.ExecuteNonQuery();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
+            Globale.cnx.Close();
+        }
     }
 }
