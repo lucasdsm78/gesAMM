@@ -19,7 +19,10 @@ namespace gsb_gesAMM
 
         private void frmNouvMed_Load(object sender, EventArgs e)
         {
-
+            foreach(string leCode in Globale.lesFamilles.Keys)
+            {
+                cbFamille.Items.Add(Globale.lesFamilles[leCode].getFamLibelle());
+            }
         }
 
         private void btQuit_Click(object sender, EventArgs e)
@@ -35,6 +38,33 @@ namespace gsb_gesAMM
             tbEffets.Text = "";
             tbContreIndic.Text = "";
             cbFamille.Text = "";
+        }
+
+        private void btAjout_Click(object sender, EventArgs e)
+        {
+            //Fonctionnalité incomplète du au fait que je ne peux pas installer Sql server chez moi
+            //Requête sql dans la classe bd inutilisable pour l'instant
+            string codeFam = "";
+            foreach(string unCode in Globale.lesFamilles.Keys)
+            {
+                Famille uneFam = Globale.lesFamilles[unCode];
+                if(uneFam.getFamLibelle() == cbFamille.ValueMember)
+                {
+                    codeFam = uneFam.getFamCode();
+                }
+            }
+            foreach(string leCode in Globale.lesMedicaments.Keys)
+            {
+                if(leCode == tbDepot.Text)
+                {
+                    MessageBox.Show("Erreur, ce dépôt légal existe déjà");
+                }
+                else
+                {
+                    bd.ajoutMedicament(tbDepot.Text, tbNomComm.Text, tbCompo.Text, tbEffets.Text, tbContreIndic.Text, codeFam);
+                    bd.lireLesMedicaments();
+                }
+            }
         }
     }
 }
