@@ -30,6 +30,7 @@ namespace gsb_gesAMM
             }
             else
             {
+                //if (bd.verifConnexion(tbLogin.Text, tbMdp.Text))
                 if (tbLogin.Text == "lucas" && tbMdp.Text == "lucas")
                 {
                     MessageBox.Show("Connexion réussie", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
