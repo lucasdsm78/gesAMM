@@ -19,8 +19,8 @@ namespace gsb_gesAMM
 
         private void chargerListeEtapeNorme()
         {
-            lvEtapeNormee.Items.Clear();
             bd.lireLesEtapes();
+            lvEtapeNormee.Items.Clear();
             foreach (Etape uneEtape in Globale.lesEtapes)
             {
                 ListViewItem maLigne = new ListViewItem();
@@ -28,12 +28,12 @@ namespace gsb_gesAMM
                 {
                     maLigne.Text = (uneEtape as EtapeNormee).getEtpNum().ToString();
                     maLigne.SubItems.Add((uneEtape as EtapeNormee).getEtpLibelle());
-                    maLigne.SubItems.Add((uneEtape as EtapeNormee).getEtpLibelle());
-                    maLigne.SubItems.Add((uneEtape as EtapeNormee).getEtpLibelle());
-                    maLigne.SubItems.Add((uneEtape as EtapeNormee).getEtpLibelle());
+                    maLigne.SubItems.Add((uneEtape as EtapeNormee).getEtpNorme());
+                    maLigne.SubItems.Add((uneEtape as EtapeNormee).getEtpDateNorme().ToShortDateString());
+                    maLigne.SubItems.Add((uneEtape as EtapeNormee).getEtpUser().ToString());
 
+                    lvEtapeNormee.Items.Add(maLigne);
                 }
-                lvEtapeNormee.Items.Add(maLigne);
             }
         }
 
@@ -45,16 +45,18 @@ namespace gsb_gesAMM
 
         private void lvEtapeNormee_Click(object sender, EventArgs e)
         {
-            gbEtapeNormee.Visible = true;
             int numeroligne = lvEtapeNormee.SelectedIndices[0];
-            tbNorme.Text = lesEtapesNormees.ElementAt(numeroligne).getEtpNorme();
-            tbDateNorme.Text = lesEtapesNormees.ElementAt(numeroligne).getEtpDateNorme().ToShortDateString();
+            int etpNum = int.Parse(lvEtapeNormee.Items[numeroligne].Text);
+            gbEtapeNormee.Visible = true;
+            tbNorme.Text = (Globale.lesEtapes.ElementAt(etpNum - 1) as EtapeNormee).getEtpNorme();
+            tbDateNorme.Text = (Globale.lesEtapes.ElementAt(etpNum - 1) as EtapeNormee).getEtpDateNorme().ToShortDateString();
+            tbUtilisateur.Text = (Globale.lesEtapes.ElementAt(etpNum - 1) as EtapeNormee).getEtpUser().ToString();
         }
 
         private void btModifier_Click(object sender, EventArgs e)
         {
             int numeroligne = lvEtapeNormee.SelectedIndices[0];
-            int etp_num = lesEtapesNormees.ElementAt(numeroligne).getEtpNum();
+            int etpNum = int.Parse(lvEtapeNormee.Items[numeroligne].Text);
 
             if (tbDateNorme.Text == "" || tbNorme.Text == "")
             {
@@ -62,7 +64,7 @@ namespace gsb_gesAMM
             }
             else
             {
-                if (bd.MAJEtapeNormee(DateTime.Parse(tbDateNorme.Text), tbNorme.Text, etp_num))
+                if (bd.MAJEtapeNormee(DateTime.Parse(tbDateNorme.Text), tbNorme.Text, etpNum, int.Parse(tbUtilisateur.Text)))
                 {
                     MessageBox.Show("L'étape normée a bien été modifiée", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     chargerListeEtapeNorme();

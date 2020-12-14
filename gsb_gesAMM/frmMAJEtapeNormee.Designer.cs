@@ -33,13 +33,15 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.gbEtapeNormee = new System.Windows.Forms.GroupBox();
             this.btModifier = new System.Windows.Forms.Button();
             this.tbDateNorme = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tbNorme = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tbUtilisateur = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.gbEtapeNormee.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,23 +82,30 @@
             this.columnHeader4.Text = "date de la norme";
             this.columnHeader4.Width = 216;
             // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "utilisateur";
+            this.columnHeader5.Width = 126;
+            // 
             // gbEtapeNormee
             // 
+            this.gbEtapeNormee.Controls.Add(this.tbUtilisateur);
+            this.gbEtapeNormee.Controls.Add(this.label3);
             this.gbEtapeNormee.Controls.Add(this.btModifier);
             this.gbEtapeNormee.Controls.Add(this.tbDateNorme);
             this.gbEtapeNormee.Controls.Add(this.label2);
             this.gbEtapeNormee.Controls.Add(this.tbNorme);
             this.gbEtapeNormee.Controls.Add(this.label1);
-            this.gbEtapeNormee.Location = new System.Drawing.Point(122, 381);
+            this.gbEtapeNormee.Location = new System.Drawing.Point(122, 357);
             this.gbEtapeNormee.Name = "gbEtapeNormee";
-            this.gbEtapeNormee.Size = new System.Drawing.Size(568, 269);
+            this.gbEtapeNormee.Size = new System.Drawing.Size(628, 352);
             this.gbEtapeNormee.TabIndex = 1;
             this.gbEtapeNormee.TabStop = false;
             this.gbEtapeNormee.Text = "Etape Normée";
             // 
             // btModifier
             // 
-            this.btModifier.Location = new System.Drawing.Point(159, 179);
+            this.btModifier.Location = new System.Drawing.Point(214, 264);
             this.btModifier.Name = "btModifier";
             this.btModifier.Size = new System.Drawing.Size(153, 68);
             this.btModifier.TabIndex = 4;
@@ -136,15 +145,27 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Norme";
             // 
-            // columnHeader5
+            // tbUtilisateur
             // 
-            this.columnHeader5.Text = "utilisateur";
+            this.tbUtilisateur.Location = new System.Drawing.Point(147, 167);
+            this.tbUtilisateur.Name = "tbUtilisateur";
+            this.tbUtilisateur.Size = new System.Drawing.Size(155, 22);
+            this.tbUtilisateur.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 167);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(71, 17);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Utilisateur";
             // 
             // frmMAJEtapeNormee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1073, 683);
+            this.ClientSize = new System.Drawing.Size(1135, 797);
             this.Controls.Add(this.gbEtapeNormee);
             this.Controls.Add(this.lvEtapeNormee);
             this.Name = "frmMAJEtapeNormee";
@@ -170,5 +191,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.TextBox tbUtilisateur;
+        private System.Windows.Forms.Label label3;
     }
 }

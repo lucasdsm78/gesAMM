@@ -20,11 +20,9 @@ namespace gsb_gesAMM
         private void btValider_Click(object sender, EventArgs e)
         {
             List<DateTime> lesDatesDuDepotLegal = new List<DateTime>();
-            int decisionId = 0;
-            int etpNum = 0;
-            string medId = "";
-            DateTime max = DateTime.MinValue;
+            Boolean decision = false;
             string depotlegalchoisi = cbMedicament.Text;
+
             foreach (string laReference in Globale.lesMedicaments.Keys)
             {
                 Medicament unMedicament = Globale.lesMedicaments[laReference];
@@ -32,17 +30,19 @@ namespace gsb_gesAMM
                 {
                     if (leWorkflow.getWkfMedId() == depotlegalchoisi)
                     {
-                        if (leWorkflow.getWkfDateDecision() > max)
+                        if(leWorkflow.getWkfDcsId() == 1)
                         {
-                            max = leWorkflow.getWkfDateDecision();
-                            decisionId = leWorkflow.getWkfDcsId();
-                            etpNum = leWorkflow.getWkfEtpNum();
-                            medId = leWorkflow.getWkfMedId();
+                            decision = true;
+                        }
+                        else
+                        {
+                            decision = false;
                         }
                     }
                 }
             }
-            if (decisionId == 1)
+
+            if (decision == true)
             {
                 MessageBox.Show("la dernière étape est acceptée", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -50,7 +50,7 @@ namespace gsb_gesAMM
                 gbProchaineEtape.Visible = true;
                 btValidDecision.Visible = true;
 
-                foreach (Etape uneEtape in Globale.lesEtapes)
+                /*foreach (Etape uneEtape in Globale.lesEtapes)
                 {
                     if (uneEtape.getEtpNum() == etpNum)
                     {
@@ -60,7 +60,7 @@ namespace gsb_gesAMM
                         tbNorme.Text = uneEtape.getEtpNorme();
                         tbNumero.Text = etpNum.ToString();
                     }
-                }
+                }*/
             }
             else
             {

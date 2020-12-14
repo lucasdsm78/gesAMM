@@ -42,7 +42,7 @@ namespace gsb_gesAMM
 
         private void cbMed_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach (string laRefMed in Globale.lesMedicaments.Keys)
+            /*foreach (string laRefMed in Globale.lesMedicaments.Keys)
             {
                 Medicament unMedicament = Globale.lesMedicaments[laRefMed];
 
@@ -102,6 +102,7 @@ namespace gsb_gesAMM
                     }
                 }
             }
+        }*/
         }
     }
 }

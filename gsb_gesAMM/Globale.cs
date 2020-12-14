@@ -22,7 +22,18 @@ namespace gsb_gesAMM
         {
             Globale.cnx = new System.Data.SqlClient.SqlConnection();
             Globale.cnx.ConnectionString = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=GSB_gesAMM;Integrated Security=True;MultipleActiveResultSets=True";
-            Globale.cnx.Open();
+
+            Globale.lesEtapes = new List<Etape>();
+            Globale.lesDecisions = new List<Decision>();
+            Globale.lesFamilles = new Dictionary<string, Famille>();
+            Globale.lesMedicaments = new Dictionary<string, Medicament>();
+            Globale.lesUtilisateurs = new List<Utilisateur>();
+
+            bd.lireLesEtapes();
+            bd.lireLesDecisions();
+            bd.lireLesFamilles();
+            bd.lireLesMedicaments();
+            bd.lireLesUtilisateurs();
         }
     }
 }
