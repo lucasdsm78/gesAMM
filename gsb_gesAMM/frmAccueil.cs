@@ -20,6 +20,9 @@ namespace gsb_gesAMM
         private void frmAccueil_Load(object sender, EventArgs e)
         {
             Globale.connect();
+
+            tbLogin.Text = "Admin";
+            tbMdp.Text = "Admin123";
         }
 
         private void btConnexion_Click(object sender, EventArgs e)
@@ -30,11 +33,8 @@ namespace gsb_gesAMM
             }
             else
             {
-                //if (bd.verifConnexion(tbLogin.Text, tbMdp.Text))
-                if (tbLogin.Text == "lucas" && tbMdp.Text == "lucas")
+                if (bd.verifConnexion(tbLogin.Text, tbMdp.Text))
                 {
-                    MessageBox.Show("Connexion réussie", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                     frmMenu open = new frmMenu();
                     open.Show();
                 }
