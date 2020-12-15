@@ -44,11 +44,12 @@ namespace gsb_gesAMM
         {
             //Fonctionnalité incomplète du au fait que je ne peux pas installer Sql server chez moi
             //Requête sql dans la classe bd inutilisable pour l'instant
+            Boolean existe = false;
             string codeFam = "";
             foreach(string unCode in Globale.lesFamilles.Keys)
             {
                 Famille uneFam = Globale.lesFamilles[unCode];
-                if(uneFam.getFamLibelle() == cbFamille.ValueMember)
+                if(uneFam.getFamLibelle() == cbFamille.Text)
                 {
                     codeFam = uneFam.getFamCode();
                 }
@@ -57,13 +58,21 @@ namespace gsb_gesAMM
             {
                 if(leCode == tbDepot.Text)
                 {
-                    MessageBox.Show("Erreur, ce dépôt légal existe déjà");
+                    existe = true;
                 }
                 else
                 {
-                    bd.ajoutMedicament(tbDepot.Text, tbNomComm.Text, tbCompo.Text, tbEffets.Text, tbContreIndic.Text, codeFam);
-                    bd.lireLesMedicaments();
+                    existe = false;
                 }
+            }
+            if(existe == true)
+            {
+                MessageBox.Show("Erreur, ce dépôt légal existe déjà");
+            }
+            else
+            {
+                bd.ajoutMedicament(tbDepot.Text, tbNomComm.Text, tbCompo.Text, tbEffets.Text, tbContreIndic.Text, codeFam);
+                bd.lireLesMedicaments();
             }
         }
     }

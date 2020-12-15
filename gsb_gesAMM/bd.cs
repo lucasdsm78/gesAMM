@@ -405,22 +405,22 @@ namespace gsb_gesAMM
             SqlCommand maRequete = new SqlCommand("prc_ajoutMedicament", Globale.cnx);
             maRequete.CommandType = System.Data.CommandType.StoredProcedure;
 
-            SqlParameter ParamDepot = new SqlParameter("@leDepotLegal", System.Data.SqlDbType.NVarChar, 30);
+            SqlParameter ParamDepot = new SqlParameter("@leDepotLegal", System.Data.SqlDbType.NVarChar, 10);
             ParamDepot.Value = leDepotLegal;
 
-            SqlParameter ParamNomCom = new SqlParameter("@leNomCommercial", System.Data.SqlDbType.NVarChar, 45);
+            SqlParameter ParamNomCom = new SqlParameter("@leNomCommercial", System.Data.SqlDbType.NVarChar, 25);
             ParamNomCom.Value = leNomCommercial;
 
-            SqlParameter ParamCompo = new SqlParameter("@laComposition", System.Data.SqlDbType.NVarChar, 155);
+            SqlParameter ParamCompo = new SqlParameter("@laComposition", System.Data.SqlDbType.NVarChar, 255);
             ParamCompo.Value = laComposition;
 
-            SqlParameter ParamEffet = new SqlParameter("@lesEffets", System.Data.SqlDbType.NVarChar, 155);
+            SqlParameter ParamEffet = new SqlParameter("@lesEffets", System.Data.SqlDbType.NVarChar, 255);
             ParamEffet.Value = lesEffets;
 
-            SqlParameter ParamContreIndic = new SqlParameter("@lesContreIndic", System.Data.SqlDbType.NVarChar, 155);
+            SqlParameter ParamContreIndic = new SqlParameter("@lesContreIndic", System.Data.SqlDbType.NVarChar, 255);
             ParamContreIndic.Value = lesContreIndic;
 
-            SqlParameter ParamFamille = new SqlParameter("@leCodeFamille", System.Data.SqlDbType.NVarChar, 50);
+            SqlParameter ParamFamille = new SqlParameter("@leCodeFamille", System.Data.SqlDbType.NVarChar, 3);
             ParamFamille.Value = leCodeFamille;
 
             maRequete.Parameters.Add(ParamDepot);

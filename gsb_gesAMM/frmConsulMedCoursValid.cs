@@ -31,10 +31,10 @@ namespace gsb_gesAMM
                         libFam = Globale.lesFamilles[unCode].getFamLibelle();
                     }
                 }
-                if(unMed.getMedAmm() == "")
+                if(unMed.getMedAmm() == "Test")
                 {
                     ListViewItem ligne = new ListViewItem();
-                    ligne.SubItems.Add(unMed.getMedDepotLegal());
+                    ligne.Text = unMed.getMedDepotLegal();
                     ligne.SubItems.Add(unMed.getMedNomCommercial());
                     ligne.SubItems.Add(libFam);
                     lvMeds.Items.Add(ligne);
@@ -44,14 +44,15 @@ namespace gsb_gesAMM
 
         private void lvMeds_Click(object sender, EventArgs e)
         {
+            lvMedsWorkflow.Items.Clear();
             Medicament unMeds = Globale.lesMedicaments[lvMeds.SelectedItems[0].Text];
             foreach(WorkFlow unWorkflow in unMeds.getLesEtapes())
             {
-                ListViewItem ligne = new ListViewItem();
-                ligne.SubItems.Add(unWorkflow.getWkfEtpNum().ToString());
-                ligne.SubItems.Add(unWorkflow.getWkfDcsId().ToString());
-                ligne.SubItems.Add(unWorkflow.getWkfDateDecision().ToString());
-                lvMedsWorkflow.Items.Add(ligne);
+                ListViewItem ligne2 = new ListViewItem();
+                ligne2.Text = unWorkflow.getWkfEtpNum().ToString();
+                ligne2.SubItems.Add(unWorkflow.getWkfDcsId().ToString());
+                ligne2.SubItems.Add(unWorkflow.getWkfDateDecision().ToString());
+                lvMedsWorkflow.Items.Add(ligne2);
             }
         }
     }

@@ -55,5 +55,12 @@ namespace gsb_gesAMM
             open.MdiParent = this;
             open.Show();
         }
+
+        private void nouveauToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmNouvMed open = new frmNouvMed();
+            open.MdiParent = this;
+            open.Show();
+        }
     }
 }

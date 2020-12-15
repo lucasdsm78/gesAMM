@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.lvMeds = new System.Windows.Forms.ListView();
-            this.lvMedsWorkflow = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lvMedsWorkflow = new System.Windows.Forms.ListView();
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -44,28 +44,16 @@
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
+            this.lvMeds.FullRowSelect = true;
             this.lvMeds.HideSelection = false;
-            this.lvMeds.Location = new System.Drawing.Point(12, 58);
+            this.lvMeds.Location = new System.Drawing.Point(16, 71);
+            this.lvMeds.Margin = new System.Windows.Forms.Padding(4);
             this.lvMeds.Name = "lvMeds";
-            this.lvMeds.Size = new System.Drawing.Size(292, 269);
+            this.lvMeds.Size = new System.Drawing.Size(388, 330);
             this.lvMeds.TabIndex = 0;
             this.lvMeds.UseCompatibleStateImageBehavior = false;
             this.lvMeds.View = System.Windows.Forms.View.Details;
             this.lvMeds.Click += new System.EventHandler(this.lvMeds_Click);
-            // 
-            // lvMedsWorkflow
-            // 
-            this.lvMedsWorkflow.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader4,
-            this.columnHeader5,
-            this.columnHeader6});
-            this.lvMedsWorkflow.HideSelection = false;
-            this.lvMedsWorkflow.Location = new System.Drawing.Point(472, 58);
-            this.lvMedsWorkflow.Name = "lvMedsWorkflow";
-            this.lvMedsWorkflow.Size = new System.Drawing.Size(316, 269);
-            this.lvMedsWorkflow.TabIndex = 1;
-            this.lvMedsWorkflow.UseCompatibleStateImageBehavior = false;
-            this.lvMedsWorkflow.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader1
             // 
@@ -78,6 +66,21 @@
             // columnHeader3
             // 
             this.columnHeader3.Text = "Libellé de la famille";
+            // 
+            // lvMedsWorkflow
+            // 
+            this.lvMedsWorkflow.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6});
+            this.lvMedsWorkflow.HideSelection = false;
+            this.lvMedsWorkflow.Location = new System.Drawing.Point(629, 71);
+            this.lvMedsWorkflow.Margin = new System.Windows.Forms.Padding(4);
+            this.lvMedsWorkflow.Name = "lvMedsWorkflow";
+            this.lvMedsWorkflow.Size = new System.Drawing.Size(420, 330);
+            this.lvMedsWorkflow.TabIndex = 1;
+            this.lvMedsWorkflow.UseCompatibleStateImageBehavior = false;
+            this.lvMedsWorkflow.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader4
             // 
@@ -93,11 +96,12 @@
             // 
             // frmConsulMedCoursValid
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.lvMedsWorkflow);
             this.Controls.Add(this.lvMeds);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmConsulMedCoursValid";
             this.Text = "frmConsulMedCoursValid";
             this.Load += new System.EventHandler(this.frmConsulMedCoursValid_Load);
