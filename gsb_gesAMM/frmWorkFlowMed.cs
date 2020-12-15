@@ -22,12 +22,8 @@ namespace gsb_gesAMM
             this.Close();
         }
 
-        Boolean chargerListe;
-
         private void frmWorkFlowMed_Load(object sender, EventArgs e)
         {
-            chargerListe = false;
-
             DataTable maTableDocument = new DataTable();
             maTableDocument.Columns.Add("ref");
             maTableDocument.Columns.Add("titre");
@@ -42,79 +38,71 @@ namespace gsb_gesAMM
             cbMed.DataSource = maTableDocument;
             cbMed.ValueMember = "ref";
             cbMed.DisplayMember = "titre";
-
-            chargerListe = true;
         }
 
         private void cbMed_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (chargerListe == true)
+            /*foreach (string laRefMed in Globale.lesMedicaments.Keys)
             {
-                lvMed.Items.Clear();
+                Medicament unMedicament = Globale.lesMedicaments[laRefMed];
 
-                foreach (string laRefMed in Globale.lesMedicaments.Keys)
+                if (unMedicament.getMedDepotLegal() == cbMed.SelectedIndex.ToString())
                 {
-                    Medicament unMedicament = Globale.lesMedicaments[laRefMed];
-
-                    if (unMedicament.getMedDepotLegal() == cbMed.SelectedValue.ToString())
+                    foreach (WorkFlow unWorkFlow in unMedicament.getLesEtapes())
                     {
-                        foreach (WorkFlow unWorkFlow in unMedicament.getLesEtapes())
+                        int idxEtape = 0;
+                        int idxDecission = 0;
+
+                        Boolean trouveEtape = false;
+                        Boolean trouveDecision = false;
+
+                        Etape monEtape = null;
+                        Decision maDecision = null;
+
+                        while (idxEtape < Globale.lesEtapes.Count)
                         {
-                            int idxEtape = 0;
-                            int idxDecission = 0;
+                            Etape uneEtape = Globale.lesEtapes.ElementAt(idxEtape);
 
-                            Boolean trouveEtape = false;
-                            Boolean trouveDecision = false;
-
-                            Etape monEtape = null;
-                            Decision maDecision = null;
-
-                            while (idxEtape < Globale.lesEtapes.Count && !trouveEtape)
+                            if (uneEtape.getEtpNum() == unWorkFlow.getWkfEtpNum())
                             {
-                                Etape uneEtape = Globale.lesEtapes.ElementAt(idxEtape);
-
-                                if (uneEtape.getEtpNum() == unWorkFlow.getWkfEtpNum())
-                                {
-                                    trouveEtape = true;
-                                    monEtape = uneEtape;
-                                }
-                                else
-                                {
-                                    idxEtape++;
-                                }
+                                trouveEtape = true;
+                                monEtape = uneEtape;
                             }
-
-                            while (idxDecission < Globale.lesDecisions.Count && !trouveDecision)
+                            else
                             {
-                                Decision uneDecision = Globale.lesDecisions.ElementAt(idxDecission);
-
-                                if (uneDecision.getDcsId() == unWorkFlow.getWkfDcsId())
-                                {
-                                    trouveDecision = true;
-                                    maDecision = uneDecision;
-                                }
-                                else
-                                {
-                                    idxDecission++;
-                                }
+                                idxEtape++;
                             }
+                        }
 
-                            if (trouveEtape && trouveDecision)
+                        while (idxDecission < Globale.lesDecisions.Count)
+                        {
+                            Decision uneDecision = Globale.lesDecisions.ElementAt(idxDecission);
+
+                            if (uneDecision.getDcsId() == unWorkFlow.getWkfDcsId())
                             {
-                                ListViewItem ligne = new ListViewItem();
-                                ligne.Text = monEtape.getEtpNum().ToString();
-                                ligne.SubItems.Add(monEtape.getEtpLibelle());
-                                ligne.SubItems.Add(unWorkFlow.getWkfDateDecision().ToString("dd/M/yyyy"));
-                                ligne.SubItems.Add(maDecision.getDcsLibelle());
-                                ligne.SubItems.Add("0");
-                                ligne.SubItems.Add("0");
-
-                                lvMed.Items.Add(ligne);
+                                trouveDecision = true;
+                                maDecision = uneDecision;
                             }
+                            else
+                            {
+                                idxDecission++;
+                            }
+                        }
+
+                        if (trouveEtape && trouveDecision)
+                        {
+                            ListViewItem ligne = new ListViewItem();
+                            ligne.Text = monEtape.getEtpNum().ToString();
+                            ligne.SubItems.Add(monEtape.getEtpLibelle());
+                            ligne.SubItems.Add(unWorkFlow.getWkfDateDecision().ToString());
+                            ligne.SubItems.Add(maDecision.getDcsLibelle());
+                            ligne.SubItems.Add(monEtape.getEtpNorme());
+                            ligne.SubItems.Add(monEtape.getEtpDateNorme().ToString());
                         }
                     }
                 }
             }
+        }*/
         }
     }
 }

@@ -107,8 +107,8 @@ namespace gsb_gesAMM
                     unMedicament.ajouterWorkflow(unWorkflow);
                 }
             }
-
             Globale.cnx.Close();
+
         }
 
         public static void lireLesDecisions()
@@ -133,8 +133,8 @@ namespace gsb_gesAMM
                 Decision uneDecision = new Decision(unId, unLibelle);
                 Globale.lesDecisions.Add(uneDecision);
             }
-
             Globale.cnx.Close();
+
         }
 
         public static void lireLesEtapes()
@@ -154,6 +154,8 @@ namespace gsb_gesAMM
             while (SqlExec.Read())
             {
                 Etape uneEtape = null;
+                DateTime? uneDateNull = null;
+                int? etpUserNull = 0;
 
                 int unNum = int.Parse(SqlExec["etp_num"].ToString());
                 string unLibelle = SqlExec["etp_libelle"].ToString();
@@ -170,8 +172,8 @@ namespace gsb_gesAMM
 
                 Globale.lesEtapes.Add(uneEtape);
             }
-
             Globale.cnx.Close();
+
         }
 
         public static void lireLesFamilles()
@@ -208,8 +210,8 @@ namespace gsb_gesAMM
 
                 Globale.lesFamilles.Add(unCode, uneFamille);
             }
-
             Globale.cnx.Close();
+
         }
 
         public static void lireLesUtilisateurs()
@@ -235,19 +237,19 @@ namespace gsb_gesAMM
                 Utilisateur unUtilisateur = new Utilisateur(unId, unPseudo, unPassword);
                 Globale.lesUtilisateurs.Add(unUtilisateur);
             }
-
             Globale.cnx.Close();
+
         }
 
         public static Boolean ajouterWorkflow(DateTime laDateDecision, int leWkfEtpNum, int leWkfDcsId, string leWkfMedId)
         {
             Globale.cnx.Open();
 
-            Boolean vraiFaux;
-
             SqlCommand maRequete = new SqlCommand("prc_ajouterWorkflow", Globale.cnx);
+            // Il s’agit d’une procédure stockée:
             maRequete.CommandType = System.Data.CommandType.StoredProcedure;
 
+            // Ajouter les parameters à la procédure stockée
             SqlParameter paramDateDecision = new SqlParameter("@laDateDecision", System.Data.SqlDbType.DateTime, 40);
             paramDateDecision.Value = laDateDecision;
 
@@ -267,26 +269,25 @@ namespace gsb_gesAMM
 
             WorkFlow newWorkflow = new WorkFlow(laDateDecision, leWkfEtpNum, leWkfDcsId, leWkfMedId);
 
+            // exécuter la procedure stockée
             try
             {
                 maRequete.ExecuteNonQuery();
                 Globale.lesMedicaments[leWkfMedId].ajouterWorkflow(newWorkflow);
-                vraiFaux = true;
+                return true;
             }
             catch
             {
-                vraiFaux = false;
+                return false;
             }
-
             Globale.cnx.Close();
-            return vraiFaux;
+
+
         }
 
-        public static List<EtapeNormee> lireLesEtapesNormees()
+        /*public static List<Etape> lireLesEtapesNormees()
         {
-            Globale.cnx.Open();
-
-            List<EtapeNormee> lesEtapesNormees = new List<EtapeNormee>();
+            List<Etape> lesEtapesNormees = new List<Etape>();
             lesEtapesNormees.Clear();
 
             //objet SQLCommand pour définir la procédure stockée à utiliser
@@ -305,21 +306,14 @@ namespace gsb_gesAMM
                 DateTime etp_date_norme = DateTime.Parse(SqlExec["etp_date_norme"].ToString());
                 int etpUser = int.Parse(SqlExec["etp_user_id"].ToString());
 
-                EtapeNormee uneEtape = new EtapeNormee(etpNum, etp_libelle, etp_norme, etp_date_norme, etpUser);
+                Etape uneEtape = new Etape(etpNum, etp_libelle, etp_norme, etp_date_norme, etpUser);
                 lesEtapesNormees.Add(uneEtape);
             }
-
-            Globale.cnx.Close();
-
             return lesEtapesNormees;
-        }
+        }*/
 
-        public static Boolean MAJEtapeNormee(DateTime etp_date_norme, string etp_norme, int etp_num, int etp_user)
+        public static Boolean MAJEtapeNormee(DateTime etp_date_norme, string etp_norme, int etp_num, int etp_user_id)
         {
-            Globale.cnx.Open();
-
-            Boolean vraiFaux;
-
             SqlCommand maRequete = new SqlCommand("prc_MAJ_etape_normee", Globale.cnx);
             // Il s’agit d’une procédure stockée:
             maRequete.CommandType = System.Data.CommandType.StoredProcedure;
@@ -334,35 +328,30 @@ namespace gsb_gesAMM
             SqlParameter paramEtpNum = new SqlParameter("@etp_num", System.Data.SqlDbType.Int, 30);
             paramEtpNum.Value = etp_num;
 
-            SqlParameter paramEtpUser = new SqlParameter("@etp_user", System.Data.SqlDbType.Int, 30);
-            paramEtpUser.Value = etp_user;
+            SqlParameter paramEtpUser = new SqlParameter("@etp_user_id", System.Data.SqlDbType.Int, 30);
+            paramEtpUser.Value = etp_user_id;
 
             maRequete.Parameters.Add(paramEtpDateNormee);
             maRequete.Parameters.Add(paramEtpNorme);
             maRequete.Parameters.Add(paramEtpNum);
+            maRequete.Parameters.Add(paramEtpUser);
 
 
             // exécuter la procedure stockée
             try
             {
                 maRequete.ExecuteNonQuery();
-                vraiFaux = true;
+                return true;
             }
             catch
             {
-                vraiFaux = false;
+                return false;
             }
 
-            Globale.cnx.Close();
-            return vraiFaux;
         }
 
         public static Boolean lireDerniereEtapeNormee(int etp_num)
         {
-            Globale.cnx.Open();
-
-            Boolean vraiFaux;
-
             //objet SQLCommand pour définir la procédure stockée à utiliser
             SqlCommand maRequete = new SqlCommand("prc_derniereEtapeNormee", Globale.cnx);
             maRequete.CommandType = System.Data.CommandType.StoredProcedure;
@@ -383,24 +372,18 @@ namespace gsb_gesAMM
                 unWorkflow = new WorkFlow(max_derniereEtape, wkf_etp_num, wkf_dcs_id, wkf_med_id);
             }
 
-            if (unWorkflow.getWkfDcsId() == 1)
+            if(unWorkflow.getWkfDcsId() == 1)
             {
-                vraiFaux = true;
+                return true;
             }
             else
             {
-                vraiFaux = false;
+                return false;
             }
-
-            Globale.cnx.Close();
-            return vraiFaux;
         }
-
         public static Boolean ajoutMedicament(string leDepotLegal, string leNomCommercial, string laComposition, string lesEffets, string lesContreIndic, string leCodeFamille)
         {
             Globale.cnx.Open();
-
-            Boolean vraiFaux;
 
             SqlCommand maRequete = new SqlCommand("prc_ajoutMedicament", Globale.cnx);
             maRequete.CommandType = System.Data.CommandType.StoredProcedure;
@@ -429,19 +412,18 @@ namespace gsb_gesAMM
             maRequete.Parameters.Add(ParamEffet);
             maRequete.Parameters.Add(ParamContreIndic);
             maRequete.Parameters.Add(ParamFamille);
-
             try
             {
                 maRequete.ExecuteNonQuery();
-                vraiFaux = true;
+
+                return true;
             }
             catch
             {
-                vraiFaux = false;
+                return false;
             }
 
             Globale.cnx.Close();
-            return vraiFaux;
         }
     }
 }

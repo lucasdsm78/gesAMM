@@ -84,7 +84,6 @@
             this.statistiquesToolStripMenuItem.Name = "statistiquesToolStripMenuItem";
             this.statistiquesToolStripMenuItem.Size = new System.Drawing.Size(419, 22);
             this.statistiquesToolStripMenuItem.Text = "Consultation du nombre de médicaments autorisés par la famille ";
-            this.statistiquesToolStripMenuItem.Click += new System.EventHandler(this.statistiquesToolStripMenuItem_Click);
             // 
             // quitterToolStripMenuItem
             // 
@@ -137,7 +136,7 @@
             this.ClientSize = new System.Drawing.Size(800, 529);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu de l\'application";

@@ -48,12 +48,5 @@ namespace gsb_gesAMM
             open.MdiParent = this;
             open.Show();
         }
-
-        private void statistiquesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmMedAuto open = new frmMedAuto();
-            open.MdiParent = this;
-            open.Show();
-        }
     }
 }
