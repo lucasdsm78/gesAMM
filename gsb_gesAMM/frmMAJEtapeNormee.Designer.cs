@@ -106,9 +106,10 @@
             // 
             // tbUtilisateur
             // 
-            this.tbUtilisateur.Location = new System.Drawing.Point(188, 167);
+            this.tbUtilisateur.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbUtilisateur.Location = new System.Drawing.Point(217, 167);
             this.tbUtilisateur.Name = "tbUtilisateur";
-            this.tbUtilisateur.Size = new System.Drawing.Size(155, 30);
+            this.tbUtilisateur.Size = new System.Drawing.Size(241, 30);
             this.tbUtilisateur.TabIndex = 6;
             // 
             // label3
@@ -123,6 +124,7 @@
             // 
             // btModifier
             // 
+            this.btModifier.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btModifier.Location = new System.Drawing.Point(190, 238);
             this.btModifier.Name = "btModifier";
             this.btModifier.Size = new System.Drawing.Size(153, 68);
@@ -133,9 +135,10 @@
             // 
             // tbDateNorme
             // 
-            this.tbDateNorme.Location = new System.Drawing.Point(188, 106);
+            this.tbDateNorme.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDateNorme.Location = new System.Drawing.Point(217, 106);
             this.tbDateNorme.Name = "tbDateNorme";
-            this.tbDateNorme.Size = new System.Drawing.Size(155, 30);
+            this.tbDateNorme.Size = new System.Drawing.Size(241, 30);
             this.tbDateNorme.TabIndex = 3;
             // 
             // label2
@@ -150,9 +153,10 @@
             // 
             // tbNorme
             // 
-            this.tbNorme.Location = new System.Drawing.Point(188, 47);
+            this.tbNorme.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNorme.Location = new System.Drawing.Point(217, 47);
             this.tbNorme.Name = "tbNorme";
-            this.tbNorme.Size = new System.Drawing.Size(155, 30);
+            this.tbNorme.Size = new System.Drawing.Size(241, 30);
             this.tbNorme.TabIndex = 1;
             // 
             // label1

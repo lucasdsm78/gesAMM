@@ -100,7 +100,7 @@
             this.tbDateNorme.Location = new System.Drawing.Point(192, 245);
             this.tbDateNorme.Name = "tbDateNorme";
             this.tbDateNorme.ReadOnly = true;
-            this.tbDateNorme.Size = new System.Drawing.Size(100, 30);
+            this.tbDateNorme.Size = new System.Drawing.Size(199, 30);
             this.tbDateNorme.TabIndex = 13;
             // 
             // tbNorme
@@ -108,7 +108,7 @@
             this.tbNorme.Location = new System.Drawing.Point(137, 197);
             this.tbNorme.Name = "tbNorme";
             this.tbNorme.ReadOnly = true;
-            this.tbNorme.Size = new System.Drawing.Size(100, 30);
+            this.tbNorme.Size = new System.Drawing.Size(254, 30);
             this.tbNorme.TabIndex = 12;
             // 
             // tbLibelle
@@ -116,7 +116,7 @@
             this.tbLibelle.Location = new System.Drawing.Point(137, 146);
             this.tbLibelle.Name = "tbLibelle";
             this.tbLibelle.ReadOnly = true;
-            this.tbLibelle.Size = new System.Drawing.Size(100, 30);
+            this.tbLibelle.Size = new System.Drawing.Size(254, 30);
             this.tbLibelle.TabIndex = 11;
             // 
             // tbDate
@@ -124,7 +124,7 @@
             this.tbDate.Location = new System.Drawing.Point(128, 100);
             this.tbDate.Name = "tbDate";
             this.tbDate.ReadOnly = true;
-            this.tbDate.Size = new System.Drawing.Size(100, 30);
+            this.tbDate.Size = new System.Drawing.Size(263, 30);
             this.tbDate.TabIndex = 10;
             // 
             // tbNumero
@@ -132,7 +132,7 @@
             this.tbNumero.Location = new System.Drawing.Point(128, 46);
             this.tbNumero.Name = "tbNumero";
             this.tbNumero.ReadOnly = true;
-            this.tbNumero.Size = new System.Drawing.Size(100, 30);
+            this.tbNumero.Size = new System.Drawing.Size(263, 30);
             this.tbNumero.TabIndex = 5;
             // 
             // lbDateNorme
@@ -206,18 +206,18 @@
             // 
             // tbMedicament
             // 
-            this.tbMedicament.Location = new System.Drawing.Point(143, 95);
+            this.tbMedicament.Location = new System.Drawing.Point(214, 97);
             this.tbMedicament.Name = "tbMedicament";
             this.tbMedicament.ReadOnly = true;
-            this.tbMedicament.Size = new System.Drawing.Size(100, 30);
+            this.tbMedicament.Size = new System.Drawing.Size(240, 30);
             this.tbMedicament.TabIndex = 15;
             // 
             // tbEtape
             // 
-            this.tbEtape.Location = new System.Drawing.Point(143, 149);
+            this.tbEtape.Location = new System.Drawing.Point(214, 149);
             this.tbEtape.Name = "tbEtape";
             this.tbEtape.ReadOnly = true;
-            this.tbEtape.Size = new System.Drawing.Size(100, 30);
+            this.tbEtape.Size = new System.Drawing.Size(240, 30);
             this.tbEtape.TabIndex = 17;
             this.tbEtape.TextChanged += new System.EventHandler(this.tbEtape_TextChanged);
             // 
@@ -244,7 +244,7 @@
             // 
             // dtDateDecision
             // 
-            this.dtDateDecision.Location = new System.Drawing.Point(197, 44);
+            this.dtDateDecision.Location = new System.Drawing.Point(217, 44);
             this.dtDateDecision.Name = "dtDateDecision";
             this.dtDateDecision.Size = new System.Drawing.Size(253, 30);
             this.dtDateDecision.TabIndex = 18;
