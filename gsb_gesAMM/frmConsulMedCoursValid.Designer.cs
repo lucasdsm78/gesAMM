@@ -46,10 +46,10 @@
             this.columnHeader3});
             this.lvMeds.FullRowSelect = true;
             this.lvMeds.HideSelection = false;
-            this.lvMeds.Location = new System.Drawing.Point(16, 71);
+            this.lvMeds.Location = new System.Drawing.Point(26, 71);
             this.lvMeds.Margin = new System.Windows.Forms.Padding(4);
             this.lvMeds.Name = "lvMeds";
-            this.lvMeds.Size = new System.Drawing.Size(388, 330);
+            this.lvMeds.Size = new System.Drawing.Size(473, 330);
             this.lvMeds.TabIndex = 0;
             this.lvMeds.UseCompatibleStateImageBehavior = false;
             this.lvMeds.View = System.Windows.Forms.View.Details;
@@ -58,14 +58,17 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Dépôt légal";
+            this.columnHeader1.Width = 107;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Nom commercial";
+            this.columnHeader2.Width = 134;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Libellé de la famille";
+            this.columnHeader3.Width = 267;
             // 
             // lvMedsWorkflow
             // 
@@ -74,10 +77,10 @@
             this.columnHeader5,
             this.columnHeader6});
             this.lvMedsWorkflow.HideSelection = false;
-            this.lvMedsWorkflow.Location = new System.Drawing.Point(629, 71);
+            this.lvMedsWorkflow.Location = new System.Drawing.Point(507, 71);
             this.lvMedsWorkflow.Margin = new System.Windows.Forms.Padding(4);
             this.lvMedsWorkflow.Name = "lvMedsWorkflow";
-            this.lvMedsWorkflow.Size = new System.Drawing.Size(420, 330);
+            this.lvMedsWorkflow.Size = new System.Drawing.Size(468, 330);
             this.lvMedsWorkflow.TabIndex = 1;
             this.lvMedsWorkflow.UseCompatibleStateImageBehavior = false;
             this.lvMedsWorkflow.View = System.Windows.Forms.View.Details;
@@ -85,14 +88,17 @@
             // columnHeader4
             // 
             this.columnHeader4.Text = "n° de l\'étape";
+            this.columnHeader4.Width = 125;
             // 
             // columnHeader5
             // 
-            this.columnHeader5.Text = "n° de la décision";
+            this.columnHeader5.Text = "Décision";
+            this.columnHeader5.Width = 112;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "Date de la décision";
+            this.columnHeader6.Width = 184;
             // 
             // frmConsulMedCoursValid
             // 
@@ -104,6 +110,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmConsulMedCoursValid";
             this.Text = "frmConsulMedCoursValid";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmConsulMedCoursValid_Load);
             this.ResumeLayout(false);
 

@@ -46,33 +46,43 @@ namespace gsb_gesAMM
             //Requête sql dans la classe bd inutilisable pour l'instant
             Boolean existe = false;
             string codeFam = "";
-            foreach(string unCode in Globale.lesFamilles.Keys)
+
+            if (tbCompo.Text != "" && tbContreIndic.Text != "" && tbDepot.Text != "" && tbEffets.Text != "" && tbNomComm.Text != "" && cbFamille.Text != "")
             {
-                Famille uneFam = Globale.lesFamilles[unCode];
-                if(uneFam.getFamLibelle() == cbFamille.Text)
+                foreach (string unCode in Globale.lesFamilles.Keys)
                 {
-                    codeFam = uneFam.getFamCode();
+                    Famille uneFam = Globale.lesFamilles[unCode];
+                    if (uneFam.getFamLibelle() == cbFamille.Text)
+                    {
+                        codeFam = uneFam.getFamCode();
+                    }
                 }
-            }
-            foreach(string leCode in Globale.lesMedicaments.Keys)
-            {
-                if(leCode == tbDepot.Text)
+
+                foreach (string leCode in Globale.lesMedicaments.Keys)
                 {
-                    existe = true;
+                    Medicament unMedicament = Globale.lesMedicaments[leCode];
+
+                    if (unMedicament.getMedDepotLegal() == tbDepot.Text)
+                    {
+                        existe = true;
+                    }
+                }
+                if (existe)
+                {
+                    MessageBox.Show("Erreur, ce dépôt légal existe déjà");
                 }
                 else
                 {
-                    existe = false;
+                    if(bd.ajoutMedicament(tbDepot.Text, tbNomComm.Text, tbCompo.Text, tbEffets.Text, tbContreIndic.Text, codeFam))
+                    {
+                        MessageBox.Show("Le médicament a bien été ajouté");
+                        bd.lireLesMedicaments();
+                    }
                 }
-            }
-            if(existe == true)
-            {
-                MessageBox.Show("Erreur, ce dépôt légal existe déjà");
             }
             else
             {
-                bd.ajoutMedicament(tbDepot.Text, tbNomComm.Text, tbCompo.Text, tbEffets.Text, tbContreIndic.Text, codeFam);
-                bd.lireLesMedicaments();
+                MessageBox.Show("Tous les champs doivent être renséignés");
             }
         }
     }

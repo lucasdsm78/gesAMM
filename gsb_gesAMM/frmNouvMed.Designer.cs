@@ -48,120 +48,115 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(83, 32);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(111, 39);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 13);
+            this.label1.Size = new System.Drawing.Size(88, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Dépôt légal :";
             // 
             // cbFamille
             // 
             this.cbFamille.FormattingEnabled = true;
-            this.cbFamille.Location = new System.Drawing.Point(203, 222);
-            this.cbFamille.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.cbFamille.Location = new System.Drawing.Point(601, 228);
+            this.cbFamille.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbFamille.Name = "cbFamille";
-            this.cbFamille.Size = new System.Drawing.Size(108, 21);
+            this.cbFamille.Size = new System.Drawing.Size(301, 24);
             this.cbFamille.TabIndex = 1;
             // 
             // tbContreIndic
             // 
-            this.tbContreIndic.Location = new System.Drawing.Point(203, 183);
-            this.tbContreIndic.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.tbContreIndic.Location = new System.Drawing.Point(237, 234);
+            this.tbContreIndic.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbContreIndic.Multiline = true;
             this.tbContreIndic.Name = "tbContreIndic";
-            this.tbContreIndic.Size = new System.Drawing.Size(108, 18);
+            this.tbContreIndic.Size = new System.Drawing.Size(198, 92);
             this.tbContreIndic.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(83, 69);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(111, 85);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 13);
+            this.label2.Size = new System.Drawing.Size(120, 17);
             this.label2.TabIndex = 3;
             this.label2.Text = "Nom commercial :";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(83, 110);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(441, 41);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 13);
+            this.label3.Size = new System.Drawing.Size(93, 17);
             this.label3.TabIndex = 4;
             this.label3.Text = "Composition :";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(83, 149);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(111, 123);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(34, 13);
+            this.label4.Size = new System.Drawing.Size(52, 17);
             this.label4.TabIndex = 5;
-            this.label4.Text = "Effets";
+            this.label4.Text = "Effets :";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(83, 187);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(102, 239);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(97, 13);
+            this.label5.Size = new System.Drawing.Size(129, 17);
             this.label5.TabIndex = 6;
             this.label5.Text = "Contre indications :";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(83, 227);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(441, 228);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 13);
+            this.label6.Size = new System.Drawing.Size(60, 17);
             this.label6.TabIndex = 7;
             this.label6.Text = "Famille :";
             // 
             // tbCompo
             // 
-            this.tbCompo.Location = new System.Drawing.Point(203, 105);
-            this.tbCompo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.tbCompo.Location = new System.Drawing.Point(601, 41);
+            this.tbCompo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbCompo.Multiline = true;
             this.tbCompo.Name = "tbCompo";
-            this.tbCompo.Size = new System.Drawing.Size(108, 20);
+            this.tbCompo.Size = new System.Drawing.Size(220, 114);
             this.tbCompo.TabIndex = 8;
             // 
             // tbNomComm
             // 
-            this.tbNomComm.Location = new System.Drawing.Point(203, 65);
-            this.tbNomComm.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.tbNomComm.Location = new System.Drawing.Point(271, 80);
+            this.tbNomComm.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbNomComm.Name = "tbNomComm";
-            this.tbNomComm.Size = new System.Drawing.Size(108, 20);
+            this.tbNomComm.Size = new System.Drawing.Size(143, 22);
             this.tbNomComm.TabIndex = 9;
             // 
             // tbDepot
             // 
-            this.tbDepot.Location = new System.Drawing.Point(203, 29);
-            this.tbDepot.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.tbDepot.Location = new System.Drawing.Point(271, 36);
+            this.tbDepot.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbDepot.Name = "tbDepot";
-            this.tbDepot.Size = new System.Drawing.Size(108, 20);
+            this.tbDepot.Size = new System.Drawing.Size(143, 22);
             this.tbDepot.TabIndex = 10;
             // 
             // tbEffets
             // 
-            this.tbEffets.Location = new System.Drawing.Point(203, 144);
-            this.tbEffets.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.tbEffets.Location = new System.Drawing.Point(237, 120);
+            this.tbEffets.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbEffets.Multiline = true;
             this.tbEffets.Name = "tbEffets";
-            this.tbEffets.Size = new System.Drawing.Size(108, 18);
+            this.tbEffets.Size = new System.Drawing.Size(198, 81);
             this.tbEffets.TabIndex = 11;
             // 
             // btAjout
             // 
-            this.btAjout.Location = new System.Drawing.Point(350, 29);
-            this.btAjout.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btAjout.Location = new System.Drawing.Point(99, 335);
+            this.btAjout.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btAjout.Name = "btAjout";
-            this.btAjout.Size = new System.Drawing.Size(79, 42);
+            this.btAjout.Size = new System.Drawing.Size(105, 52);
             this.btAjout.TabIndex = 12;
             this.btAjout.Text = "Ajouter";
             this.btAjout.UseVisualStyleBackColor = true;
@@ -169,10 +164,10 @@
             // 
             // btQuit
             // 
-            this.btQuit.Location = new System.Drawing.Point(350, 172);
-            this.btQuit.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btQuit.Location = new System.Drawing.Point(358, 335);
+            this.btQuit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btQuit.Name = "btQuit";
-            this.btQuit.Size = new System.Drawing.Size(79, 43);
+            this.btQuit.Size = new System.Drawing.Size(105, 53);
             this.btQuit.TabIndex = 13;
             this.btQuit.Text = "Quitter";
             this.btQuit.UseVisualStyleBackColor = true;
@@ -180,10 +175,10 @@
             // 
             // btNouv
             // 
-            this.btNouv.Location = new System.Drawing.Point(350, 105);
-            this.btNouv.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btNouv.Location = new System.Drawing.Point(235, 334);
+            this.btNouv.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btNouv.Name = "btNouv";
-            this.btNouv.Size = new System.Drawing.Size(79, 39);
+            this.btNouv.Size = new System.Drawing.Size(105, 53);
             this.btNouv.TabIndex = 14;
             this.btNouv.Text = "Nouveau";
             this.btNouv.UseVisualStyleBackColor = true;
@@ -191,9 +186,9 @@
             // 
             // frmNouvMed
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.btNouv);
             this.Controls.Add(this.btQuit);
             this.Controls.Add(this.btAjout);
@@ -209,7 +204,7 @@
             this.Controls.Add(this.tbContreIndic);
             this.Controls.Add(this.cbFamille);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmNouvMed";
             this.Text = "Nouveau médicament";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

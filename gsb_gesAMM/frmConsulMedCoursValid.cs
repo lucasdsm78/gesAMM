@@ -31,7 +31,7 @@ namespace gsb_gesAMM
                         libFam = Globale.lesFamilles[unCode].getFamLibelle();
                     }
                 }
-                if(unMed.getMedAmm() == "Test")
+                if(unMed.getMedAmm() == "")
                 {
                     ListViewItem ligne = new ListViewItem();
                     ligne.Text = unMed.getMedDepotLegal();
@@ -50,7 +50,15 @@ namespace gsb_gesAMM
             {
                 ListViewItem ligne2 = new ListViewItem();
                 ligne2.Text = unWorkflow.getWkfEtpNum().ToString();
-                ligne2.SubItems.Add(unWorkflow.getWkfDcsId().ToString());
+                foreach(Decision uneDecision in Globale.lesDecisions)
+                {
+                    if(unWorkflow.getWkfDcsId() == uneDecision.getDcsId())
+                    {
+                        ligne2.SubItems.Add(uneDecision.getDcsLibelle());
+                    }
+                    
+                }
+                //ligne2.SubItems.Add(unWorkflow.getWkfDcsId().ToString());
                 ligne2.SubItems.Add(unWorkflow.getWkfDateDecision().ToString());
                 lvMedsWorkflow.Items.Add(ligne2);
             }
