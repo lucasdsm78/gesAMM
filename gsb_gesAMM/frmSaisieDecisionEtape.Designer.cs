@@ -43,11 +43,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.gbProchaineEtape = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.tbTypeDecision = new System.Windows.Forms.TextBox();
-            this.tbDateDecision = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btValider = new System.Windows.Forms.Button();
             this.btValidDecision = new System.Windows.Forms.Button();
+            this.rbValidée = new System.Windows.Forms.RadioButton();
+            this.rbRefusee = new System.Windows.Forms.RadioButton();
+            this.dtDateDecision = new System.Windows.Forms.DateTimePicker();
+            this.tbMedicament = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tbEtape = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.gbDerniereEtape.SuspendLayout();
             this.gbProchaineEtape.SuspendLayout();
             this.SuspendLayout();
@@ -175,13 +180,18 @@
             // 
             // gbProchaineEtape
             // 
+            this.gbProchaineEtape.Controls.Add(this.tbMedicament);
+            this.gbProchaineEtape.Controls.Add(this.tbEtape);
+            this.gbProchaineEtape.Controls.Add(this.label8);
+            this.gbProchaineEtape.Controls.Add(this.label9);
+            this.gbProchaineEtape.Controls.Add(this.dtDateDecision);
+            this.gbProchaineEtape.Controls.Add(this.rbRefusee);
+            this.gbProchaineEtape.Controls.Add(this.rbValidée);
             this.gbProchaineEtape.Controls.Add(this.label10);
-            this.gbProchaineEtape.Controls.Add(this.tbTypeDecision);
-            this.gbProchaineEtape.Controls.Add(this.tbDateDecision);
             this.gbProchaineEtape.Controls.Add(this.label7);
             this.gbProchaineEtape.Location = new System.Drawing.Point(585, 154);
             this.gbProchaineEtape.Name = "gbProchaineEtape";
-            this.gbProchaineEtape.Size = new System.Drawing.Size(266, 185);
+            this.gbProchaineEtape.Size = new System.Drawing.Size(403, 291);
             this.gbProchaineEtape.TabIndex = 14;
             this.gbProchaineEtape.TabStop = false;
             this.gbProchaineEtape.Text = "Prochaine Etape";
@@ -189,30 +199,16 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(0, 97);
+            this.label10.Location = new System.Drawing.Point(106, 197);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(96, 17);
             this.label10.TabIndex = 15;
             this.label10.Text = "Type décision";
             // 
-            // tbTypeDecision
-            // 
-            this.tbTypeDecision.Location = new System.Drawing.Point(138, 94);
-            this.tbTypeDecision.Name = "tbTypeDecision";
-            this.tbTypeDecision.Size = new System.Drawing.Size(100, 22);
-            this.tbTypeDecision.TabIndex = 14;
-            // 
-            // tbDateDecision
-            // 
-            this.tbDateDecision.Location = new System.Drawing.Point(138, 49);
-            this.tbDateDecision.Name = "tbDateDecision";
-            this.tbDateDecision.Size = new System.Drawing.Size(100, 22);
-            this.tbDateDecision.TabIndex = 13;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 52);
+            this.label7.Location = new System.Drawing.Point(-3, 49);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(129, 17);
             this.label7.TabIndex = 4;
@@ -230,13 +226,78 @@
             // 
             // btValidDecision
             // 
-            this.btValidDecision.Location = new System.Drawing.Point(624, 381);
+            this.btValidDecision.Location = new System.Drawing.Point(631, 478);
             this.btValidDecision.Name = "btValidDecision";
             this.btValidDecision.Size = new System.Drawing.Size(156, 64);
             this.btValidDecision.TabIndex = 16;
             this.btValidDecision.Text = "Valider la décision";
             this.btValidDecision.UseVisualStyleBackColor = true;
             this.btValidDecision.Click += new System.EventHandler(this.btValidDecision_Click);
+            // 
+            // rbValidée
+            // 
+            this.rbValidée.AutoSize = true;
+            this.rbValidée.Location = new System.Drawing.Point(46, 228);
+            this.rbValidée.Name = "rbValidée";
+            this.rbValidée.Size = new System.Drawing.Size(88, 21);
+            this.rbValidée.TabIndex = 16;
+            this.rbValidée.TabStop = true;
+            this.rbValidée.Text = "Acceptée";
+            this.rbValidée.UseVisualStyleBackColor = true;
+            // 
+            // rbRefusee
+            // 
+            this.rbRefusee.AutoSize = true;
+            this.rbRefusee.Location = new System.Drawing.Point(167, 228);
+            this.rbRefusee.Name = "rbRefusee";
+            this.rbRefusee.Size = new System.Drawing.Size(82, 21);
+            this.rbRefusee.TabIndex = 17;
+            this.rbRefusee.TabStop = true;
+            this.rbRefusee.Text = "Refusée";
+            this.rbRefusee.UseVisualStyleBackColor = true;
+            // 
+            // dtDateDecision
+            // 
+            this.dtDateDecision.Location = new System.Drawing.Point(135, 47);
+            this.dtDateDecision.Name = "dtDateDecision";
+            this.dtDateDecision.Size = new System.Drawing.Size(200, 22);
+            this.dtDateDecision.TabIndex = 18;
+            // 
+            // tbMedicament
+            // 
+            this.tbMedicament.Location = new System.Drawing.Point(135, 95);
+            this.tbMedicament.Name = "tbMedicament";
+            this.tbMedicament.ReadOnly = true;
+            this.tbMedicament.Size = new System.Drawing.Size(100, 22);
+            this.tbMedicament.TabIndex = 15;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(8, 98);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(84, 17);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "Médicament";
+            // 
+            // tbEtape
+            // 
+            this.tbEtape.Location = new System.Drawing.Point(135, 146);
+            this.tbEtape.Name = "tbEtape";
+            this.tbEtape.ReadOnly = true;
+            this.tbEtape.Size = new System.Drawing.Size(100, 22);
+            this.tbEtape.TabIndex = 17;
+            this.tbEtape.TextChanged += new System.EventHandler(this.tbEtape_TextChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(8, 149);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(45, 17);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "Etape";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // frmSaisieDecisionEtape
             // 
@@ -279,10 +340,15 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox gbProchaineEtape;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox tbTypeDecision;
-        private System.Windows.Forms.TextBox tbDateDecision;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btValider;
         private System.Windows.Forms.Button btValidDecision;
+        private System.Windows.Forms.TextBox tbMedicament;
+        private System.Windows.Forms.TextBox tbEtape;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DateTimePicker dtDateDecision;
+        private System.Windows.Forms.RadioButton rbRefusee;
+        private System.Windows.Forms.RadioButton rbValidée;
     }
 }

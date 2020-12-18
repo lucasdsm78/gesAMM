@@ -23,26 +23,9 @@ namespace gsb_gesAMM
             Boolean decision = false;
             string depotlegalchoisi = cbMedicament.Text;
 
-            foreach (string laReference in Globale.lesMedicaments.Keys)
-            {
-                Medicament unMedicament = Globale.lesMedicaments[laReference];
-                foreach (WorkFlow leWorkflow in unMedicament.getLesEtapes())
-                {
-                    if (leWorkflow.getWkfMedId() == depotlegalchoisi)
-                    {
-                        if(leWorkflow.getWkfDcsId() == 1)
-                        {
-                            decision = true;
-                        }
-                        else
-                        {
-                            decision = false;
-                        }
-                    }
-                }
-            }
+            WorkFlow leWorkflow = bd.lireDerniereEtapeNormee(depotlegalchoisi);
 
-            if (decision == true)
+            if (leWorkflow.getWkfDcsId() == 1)
             {
                 MessageBox.Show("la dernière étape est acceptée", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -50,18 +33,45 @@ namespace gsb_gesAMM
                 gbProchaineEtape.Visible = true;
                 btValidDecision.Visible = true;
 
-                /*foreach (Etape uneEtape in Globale.lesEtapes)
+                tbNumero.Text = leWorkflow.getWkfEtpNum().ToString();
+                tbDate.Text = leWorkflow.getWkfDateDecision().ToShortDateString();
+
+                foreach (Etape uneEtape in Globale.lesEtapes)
                 {
-                    if (uneEtape.getEtpNum() == etpNum)
+                    tbLibelle.Text = uneEtape.getEtpLibelle();
+                    if (uneEtape.GetType().Name == "EtapeNormee")
                     {
-                        tbDate.Text = max.ToShortDateString();
-                        tbDateNorme.Text = uneEtape.getEtpDateNorme().ToShortDateString();
-                        tbLibelle.Text = uneEtape.getEtpLibelle();
-                        tbNorme.Text = uneEtape.getEtpNorme();
-                        tbNumero.Text = etpNum.ToString();
+                        if (uneEtape.getEtpNum() == leWorkflow.getWkfEtpNum())
+                        {
+                            tbNorme.Text = (uneEtape as EtapeNormee).getEtpNorme();
+                            tbDateNorme.Text = (uneEtape as EtapeNormee).getEtpDateNorme().ToShortDateString();
+                        }
                     }
-                }*/
+                    else
+                    {
+                        tbNorme.Visible = false;
+                        tbDateNorme.Visible = false;
+                    }
+                }
+
+                tbMedicament.Text = depotlegalchoisi;
+                int wkfEtpNum = int.Parse(tbNumero.Text) + 1;
+                tbEtape.Text = wkfEtpNum.ToString();
             }
+
+
+            /*foreach (Etape uneEtape in Globale.lesEtapes)
+            {
+                if (uneEtape.getEtpNum() == etpNum)
+                {
+                    tbDate.Text = max.ToShortDateString();
+                    tbDateNorme.Text = uneEtape.getEtpDateNorme().ToShortDateString();
+                    tbLibelle.Text = uneEtape.getEtpLibelle();
+                    tbNorme.Text = uneEtape.getEtpNorme();
+                    tbNumero.Text = etpNum.ToString();
+                }
+            }*/
+
             else
             {
                 MessageBox.Show("La dernière étape est refusée", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -91,38 +101,31 @@ namespace gsb_gesAMM
         private void btValidDecision_Click(object sender, EventArgs e)
         {
             string depotlegalchoisi = cbMedicament.Text;
-            int wkfEtpNum = 0;
             int wkfDcsId = 0;
-            foreach (Decision uneDecision in Globale.lesDecisions)
+            if (rbRefusee.Checked)
             {
-                if(uneDecision.getDcsLibelle() == tbTypeDecision.Text)
-                {
-                    wkfDcsId = uneDecision.getDcsId();
-                }
-            }
-
-            if (tbDateDecision.Text == "" || tbTypeDecision.Text == "")
-            {
-                MessageBox.Show("Informations manquantes", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                wkfDcsId = 2;
             }
             else
             {
-                if(wkfDcsId == 0)
-                {
-                    MessageBox.Show("Décision inexistante", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    if (bd.ajouterWorkflow(DateTime.Parse(tbDateDecision.Text), wkfEtpNum, wkfDcsId, depotlegalchoisi))
-                    {
-                        MessageBox.Show("la nouvelle étape a bien été ajoutée", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Erreur dans l'ajout du workflow", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
+                wkfDcsId = 1;
+            }
+
+
+            if (bd.ajouterWorkflow(dtDateDecision.Value, int.Parse(tbEtape.Text), wkfDcsId, tbMedicament.Text))
+            {
+                MessageBox.Show("la nouvelle étape a bien été ajoutée", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Erreur dans l'ajout du workflow", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void tbEtape_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
+           
 }

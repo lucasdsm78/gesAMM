@@ -357,15 +357,19 @@ namespace gsb_gesAMM
             return vraiFaux;
         }
 
-        public static Boolean lireDerniereEtapeNormee(int etp_num)
+        public static WorkFlow lireDerniereEtapeNormee(string depotlegal)
         {
             Globale.cnx.Open();
 
-            Boolean vraiFaux;
 
             //objet SQLCommand pour définir la procédure stockée à utiliser
             SqlCommand maRequete = new SqlCommand("prc_derniereEtapeNormee", Globale.cnx);
             maRequete.CommandType = System.Data.CommandType.StoredProcedure;
+
+            SqlParameter paramDepotLegal = new SqlParameter("@depotlegal", System.Data.SqlDbType.Char, 40);
+            paramDepotLegal.Value = depotlegal;
+
+            maRequete.Parameters.Add(paramDepotLegal);
 
             WorkFlow unWorkflow = null;
 
@@ -377,23 +381,14 @@ namespace gsb_gesAMM
             {
                 DateTime max_derniereEtape = DateTime.Parse(SqlExec["max_derniereEtape"].ToString());
                 int wkf_dcs_id = int.Parse(SqlExec["wkf_dcs_id"].ToString());
-                int wkf_etp_num = int.Parse(SqlExec["wkf_etp_id"].ToString());
-                string wkf_med_id = SqlExec["wkf_med_id"].ToString();
+                int wkf_etp_num = int.Parse(SqlExec["wkf_etp_num"].ToString());
+                string wkf_med_id2 = SqlExec["wkf_med_id"].ToString();
 
-                unWorkflow = new WorkFlow(max_derniereEtape, wkf_etp_num, wkf_dcs_id, wkf_med_id);
-            }
-
-            if (unWorkflow.getWkfDcsId() == 1)
-            {
-                vraiFaux = true;
-            }
-            else
-            {
-                vraiFaux = false;
+                unWorkflow = new WorkFlow(max_derniereEtape, wkf_etp_num, wkf_dcs_id, wkf_med_id2);
             }
 
             Globale.cnx.Close();
-            return vraiFaux;
+            return unWorkflow;
         }
 
         public static Boolean ajoutMedicament(string leDepotLegal, string leNomCommercial, string laComposition, string lesEffets, string lesContreIndic, string leCodeFamille)
