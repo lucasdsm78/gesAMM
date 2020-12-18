@@ -25,9 +25,10 @@ namespace gsb_gesAMM
 
             WorkFlow leWorkflow = bd.lireDerniereEtapeNormee(depotlegalchoisi);
 
-            if (leWorkflow.getWkfDcsId() == 1)
+
+            if (leWorkflow.getWkfDcsId() == 1 && leWorkflow.getWkfEtpNum() != 8)
             {
-                MessageBox.Show("la dernière étape est acceptée", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("la dernière étape est acceptée et l'étape suivante est disponible", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 gbDerniereEtape.Visible = true;
                 gbProchaineEtape.Visible = true;
@@ -35,48 +36,76 @@ namespace gsb_gesAMM
 
                 tbNumero.Text = leWorkflow.getWkfEtpNum().ToString();
                 tbDate.Text = leWorkflow.getWkfDateDecision().ToShortDateString();
+                tbLibelle.Text = Globale.lesEtapes.ElementAt(leWorkflow.getWkfEtpNum() - 1).getEtpLibelle();
 
-                foreach (Etape uneEtape in Globale.lesEtapes)
+                /* foreach (Etape uneEtape in Globale.lesEtapes)
+                 {*/
+                if (Globale.lesEtapes.ElementAt(leWorkflow.getWkfEtpNum() - 1).GetType().Name == "EtapeNormee")
                 {
-                    tbLibelle.Text = uneEtape.getEtpLibelle();
-                    if (uneEtape.GetType().Name == "EtapeNormee")
-                    {
-                        if (uneEtape.getEtpNum() == leWorkflow.getWkfEtpNum())
-                        {
-                            tbNorme.Text = (uneEtape as EtapeNormee).getEtpNorme();
-                            tbDateNorme.Text = (uneEtape as EtapeNormee).getEtpDateNorme().ToShortDateString();
-                        }
-                    }
-                    else
-                    {
-                        tbNorme.Visible = false;
-                        tbDateNorme.Visible = false;
-                    }
+                    tbNorme.Text = (Globale.lesEtapes.ElementAt(leWorkflow.getWkfEtpNum() - 1) as EtapeNormee).getEtpNorme();
+                    tbDateNorme.Text = (Globale.lesEtapes.ElementAt(leWorkflow.getWkfEtpNum() - 1) as EtapeNormee).getEtpDateNorme().ToShortDateString();                       
                 }
+                else
+                {
+                    tbNorme.Visible = false;
+                    tbDateNorme.Visible = false;
+                    lbDateNorme.Visible = false;
+                    lbNorme.Visible = false;
+                }
+                
 
                 tbMedicament.Text = depotlegalchoisi;
                 int wkfEtpNum = int.Parse(tbNumero.Text) + 1;
                 tbEtape.Text = wkfEtpNum.ToString();
             }
 
-
-            /*foreach (Etape uneEtape in Globale.lesEtapes)
-            {
-                if (uneEtape.getEtpNum() == etpNum)
-                {
-                    tbDate.Text = max.ToShortDateString();
-                    tbDateNorme.Text = uneEtape.getEtpDateNorme().ToShortDateString();
-                    tbLibelle.Text = uneEtape.getEtpLibelle();
-                    tbNorme.Text = uneEtape.getEtpNorme();
-                    tbNumero.Text = etpNum.ToString();
-                }
-            }*/
-
             else
             {
-                MessageBox.Show("La dernière étape est refusée", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (leWorkflow.getWkfDcsId() == 1 && leWorkflow.getWkfEtpNum() == 8)
+                {
+                    MessageBox.Show("la dernière étape est acceptée mais l'étape suivante est indisponible car il n'y a plus d'étapes suivantes", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    gbDerniereEtape.Visible = true;
+                    gbProchaineEtape.Visible = true;
+                    btValidDecision.Visible = true;
+
+                    tbNumero.Text = leWorkflow.getWkfEtpNum().ToString();
+                    tbDate.Text = leWorkflow.getWkfDateDecision().ToShortDateString();
+
+                    tbLibelle.Text = Globale.lesEtapes.ElementAt(leWorkflow.getWkfEtpNum() - 1).getEtpLibelle();
+
+                    /* foreach (Etape uneEtape in Globale.lesEtapes)
+                     {*/
+
+                    if (Globale.lesEtapes.ElementAt(leWorkflow.getWkfEtpNum() - 1).GetType().Name == "EtapeNormee")
+                    {
+                        tbNorme.Text = (Globale.lesEtapes.ElementAt(leWorkflow.getWkfEtpNum() - 1) as EtapeNormee).getEtpNorme();
+                        tbDateNorme.Text = (Globale.lesEtapes.ElementAt(leWorkflow.getWkfEtpNum() - 1) as EtapeNormee).getEtpDateNorme().ToShortDateString();
+                    }
+                    else
+                    {
+                        tbNorme.Visible = false;
+                        tbDateNorme.Visible = false;
+                        lbDateNorme.Visible = false;
+                        lbNorme.Visible = false;
+                    }
+
+                    tbMedicament.Text = "Etape suivante indisponible";
+                    tbEtape.Text = "Etape suivante indisponible";
+                    dtDateDecision.Enabled = false;
+                    rbRefusee.Enabled = false;
+                    rbValidée.Enabled = false;
+                    btValidDecision.Enabled = false;
+                }
+                else
+                {
+                    MessageBox.Show("la dernière étape est refusée", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
             }
         }
+
+
 
         private void chargerListeMedicament()
         {
@@ -127,5 +156,5 @@ namespace gsb_gesAMM
 
         }
     }
-           
 }
+

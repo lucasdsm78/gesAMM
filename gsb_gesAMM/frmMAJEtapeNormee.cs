@@ -67,6 +67,8 @@ namespace gsb_gesAMM
                 if (bd.MAJEtapeNormee(DateTime.Parse(tbDateNorme.Text), tbNorme.Text, etpNum, int.Parse(tbUtilisateur.Text)))
                 {
                     MessageBox.Show("L'étape normée a bien été modifiée", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(tbNorme.Text);
+
                     chargerListeEtapeNorme();
                 }
                 else

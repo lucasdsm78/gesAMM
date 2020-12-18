@@ -36,8 +36,8 @@
             this.tbLibelle = new System.Windows.Forms.TextBox();
             this.tbDate = new System.Windows.Forms.TextBox();
             this.tbNumero = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lbDateNorme = new System.Windows.Forms.Label();
+            this.lbNorme = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -81,8 +81,8 @@
             this.gbDerniereEtape.Controls.Add(this.tbLibelle);
             this.gbDerniereEtape.Controls.Add(this.tbDate);
             this.gbDerniereEtape.Controls.Add(this.tbNumero);
-            this.gbDerniereEtape.Controls.Add(this.label6);
-            this.gbDerniereEtape.Controls.Add(this.label5);
+            this.gbDerniereEtape.Controls.Add(this.lbDateNorme);
+            this.gbDerniereEtape.Controls.Add(this.lbNorme);
             this.gbDerniereEtape.Controls.Add(this.label4);
             this.gbDerniereEtape.Controls.Add(this.label3);
             this.gbDerniereEtape.Controls.Add(this.label2);
@@ -133,23 +133,23 @@
             this.tbNumero.Size = new System.Drawing.Size(100, 22);
             this.tbNumero.TabIndex = 5;
             // 
-            // label6
+            // lbDateNorme
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(10, 245);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(117, 17);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Date de la norme";
+            this.lbDateNorme.AutoSize = true;
+            this.lbDateNorme.Location = new System.Drawing.Point(10, 245);
+            this.lbDateNorme.Name = "lbDateNorme";
+            this.lbDateNorme.Size = new System.Drawing.Size(117, 17);
+            this.lbDateNorme.TabIndex = 4;
+            this.lbDateNorme.Text = "Date de la norme";
             // 
-            // label5
+            // lbNorme
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 197);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 17);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Norme";
+            this.lbNorme.AutoSize = true;
+            this.lbNorme.Location = new System.Drawing.Point(7, 197);
+            this.lbNorme.Name = "lbNorme";
+            this.lbNorme.Size = new System.Drawing.Size(50, 17);
+            this.lbNorme.TabIndex = 3;
+            this.lbNorme.Text = "Norme";
             // 
             // label4
             // 
@@ -333,8 +333,8 @@
         private System.Windows.Forms.TextBox tbLibelle;
         private System.Windows.Forms.TextBox tbDate;
         private System.Windows.Forms.TextBox tbNumero;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lbDateNorme;
+        private System.Windows.Forms.Label lbNorme;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;

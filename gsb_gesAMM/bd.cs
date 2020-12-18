@@ -314,7 +314,7 @@ namespace gsb_gesAMM
             return lesEtapesNormees;
         }
 
-        public static Boolean MAJEtapeNormee(DateTime etp_date_norme, string etp_norme, int etp_num, int etp_user)
+        public static Boolean MAJEtapeNormee(DateTime etp_date_norme, string etp_norme, int etp_num, int etp_user_id)
         {
             Globale.cnx.Open();
 
@@ -334,13 +334,13 @@ namespace gsb_gesAMM
             SqlParameter paramEtpNum = new SqlParameter("@etp_num", System.Data.SqlDbType.Int, 30);
             paramEtpNum.Value = etp_num;
 
-            SqlParameter paramEtpUser = new SqlParameter("@etp_user", System.Data.SqlDbType.Int, 30);
-            paramEtpUser.Value = etp_user;
+            SqlParameter paramEtpUserId = new SqlParameter("@etp_user_id", System.Data.SqlDbType.Int, 30);
+            paramEtpUserId.Value = etp_user_id;
 
             maRequete.Parameters.Add(paramEtpDateNormee);
             maRequete.Parameters.Add(paramEtpNorme);
             maRequete.Parameters.Add(paramEtpNum);
-
+            maRequete.Parameters.Add(paramEtpUserId);
 
             // exécuter la procedure stockée
             try
@@ -385,6 +385,7 @@ namespace gsb_gesAMM
                 string wkf_med_id2 = SqlExec["wkf_med_id"].ToString();
 
                 unWorkflow = new WorkFlow(max_derniereEtape, wkf_etp_num, wkf_dcs_id, wkf_med_id2);
+
             }
 
             Globale.cnx.Close();
