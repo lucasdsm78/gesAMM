@@ -36,7 +36,9 @@ namespace gsb_gesAMM
 
             foreach (string laRef in Globale.lesMedicaments.Keys)
             {
-                maTableDocument.Rows.Add(laRef, Globale.lesMedicaments[laRef].getMedNomCommercial());
+                Medicament leMedicameent = Globale.lesMedicaments[laRef];
+
+                maTableDocument.Rows.Add(laRef, leMedicameent.getMedNomCommercial());
             }
 
             cbMed.DataSource = maTableDocument;
@@ -105,9 +107,17 @@ namespace gsb_gesAMM
                                 ligne.Text = monEtape.getEtpNum().ToString();
                                 ligne.SubItems.Add(monEtape.getEtpLibelle());
                                 ligne.SubItems.Add(unWorkFlow.getWkfDateDecision().ToString("dd/M/yyyy"));
+                                
                                 ligne.SubItems.Add(maDecision.getDcsLibelle());
-                                ligne.SubItems.Add("0");
-                                ligne.SubItems.Add("0");
+
+                                if (monEtape.GetType().Name == "EtapeNormee")
+                                {
+                                    if (monEtape.getEtpNum() == (monEtape as EtapeNormee).getEtpNum())
+                                    {
+                                        ligne.SubItems.Add((monEtape as EtapeNormee).getEtpNorme());
+                                        ligne.SubItems.Add((monEtape as EtapeNormee).getEtpDateNorme().ToString("dd/M/yyyy"));
+                                    }
+                                }
 
                                 lvMed.Items.Add(ligne);
                             }

@@ -63,17 +63,17 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Code famille";
-            this.columnHeader1.Width = 311;
+            this.columnHeader1.Width = 200;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Designation famille";
-            this.columnHeader2.Width = 400;
+            this.columnHeader2.Width = 300;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "NB médicaments autorisés";
-            this.columnHeader3.Width = 239;
+            this.columnHeader3.Width = 230;
             // 
             // lvListMedAuto
             // 

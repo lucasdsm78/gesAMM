@@ -30,24 +30,12 @@ namespace gsb_gesAMM
 
             foreach (string uneFamille in Globale.lesFamilles.Keys)
             {
-                int nbMedicament = 0;
-
                 Famille laFamille = Globale.lesFamilles[uneFamille];
-
-                foreach (string codeDepot in Globale.lesMedicaments.Keys)
-                {
-                    Medicament leMedicament = Globale.lesMedicaments[codeDepot];
-
-                    if (laFamille.getFamCode() == leMedicament.getMedCodeFamille())
-                    {
-                        nbMedicament++;
-                    }
-                }
 
                 ListViewItem ligne = new ListViewItem();
                 ligne.Text = laFamille.getFamCode();
                 ligne.SubItems.Add(laFamille.getFamLibelle());
-                ligne.SubItems.Add(nbMedicament.ToString());
+                ligne.SubItems.Add(laFamille.getFamNbMediAmm().ToString());
 
                 lvListMed.Items.Add(ligne);
             }
@@ -67,17 +55,25 @@ namespace gsb_gesAMM
                 {
                     Medicament unMedicament = Globale.lesMedicaments[leDepotLegal];
 
-                    if (unMedicament.getMedCodeFamille() == lvListMed.SelectedItems[0].Text)
+                    foreach (string laFamille in Globale.lesFamilles.Keys)
                     {
-                        ListViewItem ligne = new ListViewItem();
-                        ligne.Text = unMedicament.getMedDepotLegal();
-                        ligne.SubItems.Add(unMedicament.getMedNomCommercial());
-                        ligne.SubItems.Add(unMedicament.getMedComposition());
-                        ligne.SubItems.Add(unMedicament.getMedEffets());
-                        ligne.SubItems.Add(unMedicament.getMedContreIndications());
-                        ligne.SubItems.Add(unMedicament.getMedAmm());
+                        Famille uneFamille = Globale.lesFamilles[laFamille];
 
-                        lvListMedAuto.Items.Add(ligne);
+                        if (uneFamille.getFamCode() == unMedicament.getMedCodeFamille() && unMedicament.getMedAmm() != "")
+                        {
+                            if (unMedicament.getMedCodeFamille() == lvListMed.SelectedItems[0].Text)
+                            {
+                                ListViewItem ligne = new ListViewItem();
+                                ligne.Text = unMedicament.getMedDepotLegal();
+                                ligne.SubItems.Add(unMedicament.getMedNomCommercial());
+                                ligne.SubItems.Add(unMedicament.getMedComposition());
+                                ligne.SubItems.Add(unMedicament.getMedEffets());
+                                ligne.SubItems.Add(unMedicament.getMedContreIndications());
+                                ligne.SubItems.Add(unMedicament.getMedAmm());
+
+                                lvListMedAuto.Items.Add(ligne);
+                            }
+                        }
                     }
                 }
             }
