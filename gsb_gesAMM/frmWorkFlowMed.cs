@@ -106,7 +106,7 @@ namespace gsb_gesAMM
                                 ListViewItem ligne = new ListViewItem();
                                 ligne.Text = monEtape.getEtpNum().ToString();
                                 ligne.SubItems.Add(monEtape.getEtpLibelle());
-                                ligne.SubItems.Add(unWorkFlow.getWkfDateDecision().ToString("dd/M/yyyy"));
+                                ligne.SubItems.Add(unWorkFlow.getWkfDateDecision().ToString("dd/MM/yyyy"));
                                 
                                 ligne.SubItems.Add(maDecision.getDcsLibelle());
 
@@ -115,7 +115,7 @@ namespace gsb_gesAMM
                                     if (monEtape.getEtpNum() == (monEtape as EtapeNormee).getEtpNum())
                                     {
                                         ligne.SubItems.Add((monEtape as EtapeNormee).getEtpNorme());
-                                        ligne.SubItems.Add((monEtape as EtapeNormee).getEtpDateNorme().ToString("dd/M/yyyy"));
+                                        ligne.SubItems.Add((monEtape as EtapeNormee).getEtpDateNorme().ToString("dd/MM/yyyy"));
                                     }
                                 }
 
