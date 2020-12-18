@@ -35,13 +35,13 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.gbEtapeNormee = new System.Windows.Forms.GroupBox();
+            this.tbUtilisateur = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.btModifier = new System.Windows.Forms.Button();
             this.tbDateNorme = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tbNorme = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.tbUtilisateur = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.gbEtapeNormee.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,6 +96,7 @@
             this.gbEtapeNormee.Controls.Add(this.label2);
             this.gbEtapeNormee.Controls.Add(this.tbNorme);
             this.gbEtapeNormee.Controls.Add(this.label1);
+            this.gbEtapeNormee.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbEtapeNormee.Location = new System.Drawing.Point(122, 357);
             this.gbEtapeNormee.Name = "gbEtapeNormee";
             this.gbEtapeNormee.Size = new System.Drawing.Size(628, 352);
@@ -103,9 +104,26 @@
             this.gbEtapeNormee.TabStop = false;
             this.gbEtapeNormee.Text = "Etape Normée";
             // 
+            // tbUtilisateur
+            // 
+            this.tbUtilisateur.Location = new System.Drawing.Point(188, 167);
+            this.tbUtilisateur.Name = "tbUtilisateur";
+            this.tbUtilisateur.Size = new System.Drawing.Size(155, 30);
+            this.tbUtilisateur.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(6, 167);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(108, 25);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Utilisateur";
+            // 
             // btModifier
             // 
-            this.btModifier.Location = new System.Drawing.Point(214, 264);
+            this.btModifier.Location = new System.Drawing.Point(190, 238);
             this.btModifier.Name = "btModifier";
             this.btModifier.Size = new System.Drawing.Size(153, 68);
             this.btModifier.TabIndex = 4;
@@ -115,59 +133,47 @@
             // 
             // tbDateNorme
             // 
-            this.tbDateNorme.Location = new System.Drawing.Point(147, 106);
+            this.tbDateNorme.Location = new System.Drawing.Point(188, 106);
             this.tbDateNorme.Name = "tbDateNorme";
-            this.tbDateNorme.Size = new System.Drawing.Size(155, 22);
+            this.tbDateNorme.Size = new System.Drawing.Size(155, 30);
             this.tbDateNorme.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(6, 106);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(117, 17);
+            this.label2.Size = new System.Drawing.Size(176, 25);
             this.label2.TabIndex = 2;
             this.label2.Text = "Date de la norme";
             // 
             // tbNorme
             // 
-            this.tbNorme.Location = new System.Drawing.Point(105, 44);
+            this.tbNorme.Location = new System.Drawing.Point(188, 47);
             this.tbNorme.Name = "tbNorme";
-            this.tbNorme.Size = new System.Drawing.Size(155, 22);
+            this.tbNorme.Size = new System.Drawing.Size(155, 30);
             this.tbNorme.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(23, 47);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 17);
+            this.label1.Size = new System.Drawing.Size(75, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Norme";
-            // 
-            // tbUtilisateur
-            // 
-            this.tbUtilisateur.Location = new System.Drawing.Point(147, 167);
-            this.tbUtilisateur.Name = "tbUtilisateur";
-            this.tbUtilisateur.Size = new System.Drawing.Size(155, 22);
-            this.tbUtilisateur.TabIndex = 6;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 167);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 17);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Utilisateur";
             // 
             // frmMAJEtapeNormee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1135, 797);
+            this.BackColor = System.Drawing.Color.SkyBlue;
+            this.ClientSize = new System.Drawing.Size(1135, 675);
             this.Controls.Add(this.gbEtapeNormee);
             this.Controls.Add(this.lvEtapeNormee);
+            this.ForeColor = System.Drawing.Color.Red;
             this.Name = "frmMAJEtapeNormee";
             this.Text = "frmMAJEtapeNormee";
             this.Load += new System.EventHandler(this.frmMAJEtapeNormee_Load);
